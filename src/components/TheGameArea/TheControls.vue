@@ -2,7 +2,7 @@
   <div class="controls-row">
     <div class="controls">
       <TheControlsButton action="doubleDown" :is-enabled="canDoubleDown && isPlayerTurn" />
-      <TheControlsButton action="split" :is-enabled="isPlayerTurn" />
+      <TheControlsButton action="split" :is-enabled="canSplit && isPlayerTurn" />
       <TheBank />
       <TheControlsButton action="stand" :is-enabled="isPlayerTurn" />
       <TheControlsButton action="hit" :is-enabled="isPlayerTurn" />
