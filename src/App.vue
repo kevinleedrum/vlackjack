@@ -44,6 +44,7 @@ body {
   outline: 0 !important;
 }
 * {
+  user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -khtml-user-select: none;
