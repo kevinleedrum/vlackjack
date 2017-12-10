@@ -1,5 +1,8 @@
 <template>
-  <a class="controls-button" :class="{ 'is-disabled': !isEnabled }" @click="doAction">
+  <a class="controls-button"
+    :class="{ 'is-disabled': !isEnabled }"
+    @click="doAction"
+  >
     <svg style="display: none">
       <symbol id="dealRound" viewBox="0 0 88 88">
         <path d="M22.36,43h5.26c4.43,0,7.49,3,7.49,7v0c0,4-3.06,7-7.49,7H22.36Zm5.26,11.84a4.6,4.6,0,0,0,4.89-4.75v0a4.63,4.63,0,0,0-4.89-4.79H24.84v9.59Z" transform="translate(-6 -6)" class="fill-secondary" />

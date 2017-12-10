@@ -1,11 +1,23 @@
 <template>
   <div class="controls-row">
     <div class="controls">
-      <GameButton action="doubleDown" :is-enabled="canDoubleDown && isPlayerTurn" />
-      <GameButton action="split" :is-enabled="canSplit && isPlayerTurn" />
+      <GameButton
+        action="doubleDown"
+        :is-enabled="canDoubleDown && isPlayerTurn"
+      />
+      <GameButton
+        action="split"
+        :is-enabled="canSplit && isPlayerTurn"
+      />
       <TheBank />
-      <GameButton action="stand" :is-enabled="isPlayerTurn" />
-      <GameButton action="hit" :is-enabled="isPlayerTurn" />
+      <GameButton
+        action="stand"
+        :is-enabled="isPlayerTurn"
+      />
+      <GameButton
+        action="hit"
+        :is-enabled="isPlayerTurn"
+      />
     </div>
   </div>
 </template>

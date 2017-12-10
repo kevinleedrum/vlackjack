@@ -1,5 +1,10 @@
 <template>
-  <transition-group name="coin" tag="div" class="hand-bet" :class="{ 'is-win': isWin, 'is-loss': isLoss }">
+  <transition-group
+    name="coin"
+    tag="div"
+    class="hand-bet"
+    :class="{ 'is-win': isWin, 'is-loss': isLoss }"
+  >
     <GameCoin
       v-for="(bet, i) in hand.bets"
       :key="i"

@@ -1,7 +1,13 @@
 <template>
-  <div class="card" :class="{ 'face-down': isFaceDown }">
+  <div
+    class="card"
+    :class="{ 'face-down': isFaceDown }"
+  >
     <div class="front">
-      <div class="top-corner" :class="suitColor">
+      <div
+        class="top-corner"
+        :class="suitColor"
+      >
         <PlayingCardValue :value="card.value" />
         <PlayingCardSuit :suit="card.suit" />
       </div>

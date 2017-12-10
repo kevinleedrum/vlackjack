@@ -1,6 +1,9 @@
 <template>
   <transition name="balloon">
-    <div v-if="result" class="hand-result">
+    <div
+      v-if="result"
+      class="hand-result"
+    >
       <svg :is="'result-' + result.toLowerCase()"></svg>
     </div>
   </transition>

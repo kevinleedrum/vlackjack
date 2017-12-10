@@ -2,14 +2,32 @@
   <aside class="sidebar">
     <GameLogo />
     <p class="tagline">
-      Built with <a href="https://vuejs.org/" title="vuejs.org" target="_blank">Vue.js</a>
+      Built with
+      <a
+        href="https://vuejs.org/"
+        title="vuejs.org"
+        target="_blank"
+      >
+        Vue.js
+      </a>
     </p>
-    <a class="github-link" href="https://github.com/kevinleedrum/vlackjack/" title="GitHub project page">
+    <a
+      href="https://github.com/kevinleedrum/vlackjack/"
+      title="GitHub project page"
+      class="github-link"
+    >
       <i class="github-logo"></i>
       <span>GitHub</span>
     </a>
     <p class="byline">
-      &copy; 2017 <a href="https://linkedin.com/in/kevinleedrum/" title="linkedin" target="_blank">Kevin Lee Drum</a>
+      &copy; 2017
+      <a
+        href="https://linkedin.com/in/kevinleedrum/"
+        title="linkedin"
+        target="_blank"
+      >
+        Kevin Lee Drum
+      </a>
     </p>
   </aside>
 </template>
