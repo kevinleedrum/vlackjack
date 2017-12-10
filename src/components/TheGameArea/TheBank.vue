@@ -3,7 +3,7 @@
       class="bank"
       :class="{ 'is-increasing': isIncreasing }"
     >
-      <GameCoin :is-spinning="isIncreasing" />
+      <GameCoin :class="{ 'is-spinning': isIncreasing }" />
       <small>&times;</small> 
       <span class="number">{{ $store.state.bank }}</span>
     </span>
@@ -61,5 +61,20 @@ export default {
 }
 .bank.is-increasing .number {
   font-weight: 800;
+}
+.is-spinning {
+  animation: spin 1s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+@keyframes spin {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(6 * 360deg);
+  }
 }
 </style>
