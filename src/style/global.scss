@@ -3,7 +3,6 @@ $secondary-color: #1F3C40;
 $success-color: #77dd83;
 $red: #E35000;
 $gold: #e1ae0f;
-$white: #fff;
 
 .fill-primary {
   fill: $primary-color;
@@ -21,5 +20,5 @@ $white: #fff;
   fill: $gold;
 }
 .fill-white {
-  fill: $white;
+  fill: #fff;
 }

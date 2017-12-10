@@ -96,7 +96,7 @@ export default {
   height: 3rem;
 }
 .is-black svg {
-  fill: $white;
+  fill: #fff;
 }
 .is-red svg {
   fill: $red;

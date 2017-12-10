@@ -42,7 +42,7 @@ export default {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 2em;
-  background: $white;
+  background: #fff;
   color: $secondary-color;
   border-radius: 50%;
   text-align: center;
