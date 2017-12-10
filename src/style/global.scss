@@ -1,0 +1,25 @@
+$primary-color: #008DC9;
+$secondary-color: #1F3C40;
+$success-color: #77dd83;
+$red: #E35000;
+$gold: #e1ae0f;
+$white: #fff;
+
+.fill-primary {
+  fill: $primary-color;
+}
+.fill-secondary {
+  fill: $secondary-color;
+}
+.fill-success {
+  fill: $success-color;
+}
+.fill-red {
+  fill: $red;
+}
+.fill-gold {
+  fill: $gold;
+}
+.fill-white {
+  fill: $white;
+}
