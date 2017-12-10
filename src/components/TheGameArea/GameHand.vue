@@ -1,7 +1,7 @@
 <template>
-  <div
+  <div 
     class="game-hand"
-    :class="{ 'is-active': isActiveHand && index > 0, 'is-split': isSplit && index > 0, 'is-dealer': index === 0, 'is-inactive': isInactiveHand }"
+    :class="handClasses"
   >
     <transition-group name="deal" tag="div" class="cards">
         <PlayingCard
@@ -47,6 +47,14 @@ export default {
     },
     isInactiveHand () {
       return this.isSplit && !this.isActiveHand && this.$store.state.activeHandIndex && this.index > 0;
+    },
+    handClasses () {
+      let classes = [];
+      if (this.isActiveHand && this.index > 0) classes.push('is-active');
+      if (this.isSplit && this.index > 0) classes.push('is-split');
+      if (this.index === 0) classes.push('is-dealer');
+      if (this.isInactiveHand) classes.push('is-inactive');
+      return classes;
     },
     ...mapGetters(['isSplit'])
   },
