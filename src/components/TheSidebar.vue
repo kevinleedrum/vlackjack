@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar">
-    <TheLogo />
+    <GameLogo />
     <p class="tagline">
       Built with <a href="https://vuejs.org/" title="vuejs.org" target="_blank">Vue.js</a>
     </p>
@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import TheLogo from './TheLogo';
+import GameLogo from './GameLogo';
 export default {
   components: {
-    TheLogo
+    GameLogo
   }
 };
 </script>

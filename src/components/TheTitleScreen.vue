@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div class="title-screen">
-      <TheLogo />
+      <GameLogo />
       <svg id="orbits" viewBox="0 0 182 63.95">
         <circle id="orbits-sun" cx="91" cy="31.97" r="31.97" fill="#fff" opacity="0.75"/>
         <ellipse id="orbits-ring-2" cx="91" cy="31.97" rx="57.63" ry="13.9" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" opacity="0.5"/>
@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import TheLogo from './TheLogo';
+import GameLogo from './GameLogo';
 export default {
   components: {
-    TheLogo
+    GameLogo
   },
   mounted () {
     setTimeout(() => { this.$store.dispatch('startNewGame'); }, 2000);
