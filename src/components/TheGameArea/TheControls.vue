@@ -1,22 +1,22 @@
 <template>
   <div class="controls-row">
     <div class="controls">
-      <TheControlsButton action="doubleDown" :is-enabled="canDoubleDown && isPlayerTurn" />
-      <TheControlsButton action="split" :is-enabled="canSplit && isPlayerTurn" />
+      <GameButton action="doubleDown" :is-enabled="canDoubleDown && isPlayerTurn" />
+      <GameButton action="split" :is-enabled="canSplit && isPlayerTurn" />
       <TheBank />
-      <TheControlsButton action="stand" :is-enabled="isPlayerTurn" />
-      <TheControlsButton action="hit" :is-enabled="isPlayerTurn" />
+      <GameButton action="stand" :is-enabled="isPlayerTurn" />
+      <GameButton action="hit" :is-enabled="isPlayerTurn" />
     </div>
   </div>
 </template>
 
 <script>
-import TheControlsButton from './TheControlsButton';
+import GameButton from './GameButton';
 import TheBank from './TheBank';
 import { mapGetters, mapState } from 'vuex';
 export default {
   components: {
-    TheControlsButton,
+    GameButton,
     TheBank
   },
   computed: {
