@@ -21,7 +21,6 @@ export default {
 
 <style lang="scss">
 @import './style/global.scss';
-
 .game {
   display: flex;
   flex-flow: row nowrap;
