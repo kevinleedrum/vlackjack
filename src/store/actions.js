@@ -33,6 +33,7 @@ export default {
   startRound ({ commit, dispatch, state }) {
     commit('checkForBustsAndBlackjacks');
     if (state.hands.find(hand => hand.result)) {
+      commit('revealDealerHand');
       dispatch('endRound');
     } else {
       dispatch('startNextTurn');
