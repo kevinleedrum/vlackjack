@@ -61,7 +61,6 @@ export default {
 }
 .bank.is-increasing .number {
   transform: scale(1.1);
-  text-shadow: 0 0 0.2em $gold;
 }
 .is-spinning {
   animation: spin 1s ease;
