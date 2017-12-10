@@ -53,14 +53,15 @@ export default {
   font-weight: 300;
   margin: 0.5rem;
 }
-.bank .number {
-  transition: all 0.3s;
-}
 .bank.is-increasing {
   background: rgba(0, 0, 0, 0.2);
 }
+.bank .number {
+  transition: all 0.2s ease;
+}
 .bank.is-increasing .number {
-  font-weight: 800;
+  transform: scale(1.1);
+  text-shadow: 0 0 0.2em $gold;
 }
 .is-spinning {
   animation: spin 1s ease;
