@@ -8,6 +8,7 @@
     <GameCoin
       v-for="(bet, i) in hand.bets"
       :key="i"
+      class="hand-coin"
     />
   </transition-group>
 </template>
@@ -37,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .hand-bet {
   position: absolute;
   bottom: -4rem;
@@ -45,9 +46,7 @@ export default {
   width: 100%;
   text-align: center;
 }
-.hand-bet .game-coin {
-  width: 3rem;
-  height: 3rem;
+.hand-bet .hand-coin {
   margin: 0.1rem;
   transition: all 0.3s ease-in;
 }

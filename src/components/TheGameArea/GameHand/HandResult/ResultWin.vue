@@ -25,7 +25,7 @@
   </svg>
 </template>
 
-<style lang="scss">
+<style scoped>
 .dollar-sign {
   animation: turn 2s ease;
   transform-origin: center;

@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .hand-result {
   position: absolute;
   width: 26rem;

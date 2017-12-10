@@ -41,9 +41,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../style/global.scss';
-
 .sidebar {
   display: flex;
   @media (max-width: 1023px) {

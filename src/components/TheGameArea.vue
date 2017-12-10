@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .game-area {
   height: 100%;
   display: flex;

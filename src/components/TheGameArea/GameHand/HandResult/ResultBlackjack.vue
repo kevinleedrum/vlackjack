@@ -19,7 +19,7 @@
   </svg>
 </template>
 
-<style>
+<style scoped>
 #result-blackjack-moon {
   animation: moonrise 1s ease;
   transform: scale(100%);

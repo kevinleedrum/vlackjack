@@ -68,7 +68,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .game-hand {
   position: relative;
   transition: all 0.2s ease;
@@ -81,6 +81,9 @@ export default {
   max-width: 55%;
   transform: scale(1.3);
   z-index: 100;
+}
+.game-hand.is-split {
+  transition: scale 0s;
 }
 .game-hand.is-inactive {
   opacity: 0.3;
@@ -96,9 +99,6 @@ export default {
 }
 .deal-enter-active, .deal-leave-active {
   transition: translateY 0.3s ease-in-out;
-}
-.is-split {
-  transition: scale 0s;
 }
 .is-split .deal-leave-active {
   transition: translateY 0s;

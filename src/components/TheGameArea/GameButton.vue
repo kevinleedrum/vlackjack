@@ -1,5 +1,5 @@
 <template>
-  <a class="controls-button"
+  <a class="game-button"
     :class="{ 'is-disabled': !isEnabled }"
     @click="doAction"
   >
@@ -68,8 +68,8 @@ export default {
 };
 </script>
 
-<style>
-.controls-button {
+<style scoped>
+.game-button {
   display: inline-block;
   padding: 0 0.5rem;
   max-width: 8rem;
@@ -83,23 +83,23 @@ export default {
   transform: translateY(-0.125rem);
   cursor: pointer;
 }
-.controls-button svg {
+.game-button svg {
   width: 100%;
   height: 100%;
 }
-.controls-button.is-disabled {
+.game-button.is-disabled {
   cursor: default;
   opacity: 0.25;
 }
-.controls-button.is-disabled svg {
+.game-button.is-disabled svg {
   opacity: 0.5;
 }
-.controls-button:not(.is-disabled):not(:active):hover {
+.game-button:not(.is-disabled):not(:active):hover {
   background-color: #fff;
   transform: translateY(-0.25rem);
   box-shadow: 0 0.375rem 0 0 rgba(0, 0, 0, 0.25);
 }
-.controls-button:not(.is-disabled):active {
+.game-button:not(.is-disabled):active {
   box-shadow: 0 0 0;
   transform: translateY(0);
 }

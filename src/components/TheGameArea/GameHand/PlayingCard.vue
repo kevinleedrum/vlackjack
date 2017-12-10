@@ -4,11 +4,8 @@
     :class="{ 'face-down': isFaceDown }"
   >
     <div class="front">
-      <div
-        class="top-corner"
-        :class="suitColor"
-      >
-        <PlayingCardValue :value="card.value" />
+      <div class="top-corner">
+        <PlayingCardValue :value="card.value" :suit="card.suit" />
         <PlayingCardSuit :suit="card.suit" />
       </div>
     </div>
@@ -33,17 +30,11 @@ export default {
       type: Boolean,
       required: true
     }
-  },
-  computed: {
-    suitColor () {
-      if (['C', 'S'].includes(this.card.suit)) return 'is-black';
-      return 'is-red';
-    }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../../style/global.scss';
 .card {
   position: relative;
@@ -88,17 +79,11 @@ export default {
   text-align: center;
   top: 0.5rem;
   left: 0.5rem;
+  width: 3rem;
+  height: 6.1rem;
   display: flex;
   flex-flow: column;
-}
-.card .top-corner svg {
-  width: 3rem;
-  height: 3rem;
-}
-.is-black svg {
-  fill: #fff;
-}
-.is-red svg {
-  fill: $red;
+  justify-content: space-between;
+  align-items: stretch;
 }
 </style>
