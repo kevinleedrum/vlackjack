@@ -33,7 +33,7 @@ html, body, .game {
 html {
   font-size: 16px;
   @media (max-height: 768px) {
-    font-size: calc(6px + 0.5vh);
+    font-size: calc(5px + 0.5vh);
   }
 }
 body {
