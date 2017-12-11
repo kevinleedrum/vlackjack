@@ -37,7 +37,7 @@ export default {
   deal (state, { handIndex }) {
     const hand = state.hands[handIndex];
     let newCard = state.shoe.shift();
-    const isFirstDealerCard = handIndex === 0 && !hand.cards.length;
+    const isFirstDealerCard = handIndex === 0 && hand.cards.length === 0;
     newCard.isFaceDown = isFirstDealerCard;
     hand.cards.push(newCard);
   },
