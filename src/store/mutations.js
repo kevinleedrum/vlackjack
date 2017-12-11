@@ -12,15 +12,15 @@ export default {
   hideTitleScreen (state) {
     state.isTitleShowing = false;
   },
-  resetShoe (state) {
-    state.shoe = blackjack.createShoe(state.settings.deckCount);
-    state.shoe = blackjack.shuffle(state.shoe);
+  resetShoe (state, { _blackjack = blackjack }) {
+    state.shoe = _blackjack.createShoe(state.settings.deckCount);
+    state.shoe = _blackjack.shuffle(state.shoe);
   },
   resetBank (state) {
     state.bank = state.settings.startingBank;
   },
   resetHands (state) {
-      state.hands = [clone(BASE_HAND), clone(BASE_HAND)];
+    state.hands = [clone(BASE_HAND), clone(BASE_HAND)];
   },
   bet (state) {
     if (state.bank < state.settings.minimumBet) return;
@@ -68,12 +68,12 @@ export default {
     }
     state.hands = hands;
   },
-  compareHands (state) {
+  compareHands (state, { _blackjack = blackjack }) {
     const hands = clone(state.hands);
     for (let i = 1; i < hands.length; i++) {
       const hand = hands[i];
-      const total = blackjack.score(hand.cards);
-      const dealerTotal = blackjack.score(hands[0].cards);
+      const total = _blackjack.score(hand.cards);
+      const dealerTotal = _blackjack.score(hands[0].cards);
       if (dealerTotal === total) hand.result = PUSH;
       if (dealerTotal > 21 && !hand.result) hand.result = WIN;
       if (total > dealerTotal && !hand.result) hand.result = WIN;

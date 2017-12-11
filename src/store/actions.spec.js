@@ -21,7 +21,7 @@ describe('actions', () => {
     });
     it('commits resetShoe mutation', () => {
       startNewGame({ commit, dispatch });
-      expect(commit).toBeCalledWith('resetShoe');
+      expect(commit).toBeCalledWith('resetShoe', {});
     });
     it('commits resetBank mutation', () => {
       startNewGame({ commit, dispatch });
@@ -70,7 +70,7 @@ describe('actions', () => {
     it('commits resetShoe mutation if shoe has been reduced by shuffleAfterPercent', () => {
       state.shoe = Array(260).fill({});
       reshuffleIfNeeded({ commit, state });
-      expect(commit).toBeCalledWith('resetShoe');
+      expect(commit).toBeCalledWith('resetShoe', {});
     });
     it('does not commit resetShoe mutation if more than shuffleAfterPercent remaining', () => {
       state.shoe = Array(261).fill({});

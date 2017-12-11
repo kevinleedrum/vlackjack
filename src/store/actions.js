@@ -6,7 +6,7 @@ const DEALER_DECISION_DELAY = 750;
 export default {
   startNewGame ({ commit, dispatch }) {
     commit('hideTitleScreen');
-    commit('resetShoe');
+    commit('resetShoe', {});
     commit('resetBank');
     dispatch('resetRound');
   },
@@ -19,7 +19,7 @@ export default {
   reshuffleIfNeeded ({ commit, state }) {
     const shoeUsedPercent = 1 - (state.shoe.length / (state.settings.deckCount * 52));
     if (shoeUsedPercent >= state.settings.shuffleAfterPercent) {
-      commit('resetShoe');
+      commit('resetShoe', {});
     }
   },
   dealRound ({ commit, dispatch, state }) {
