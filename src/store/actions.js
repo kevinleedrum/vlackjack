@@ -17,7 +17,7 @@ export default {
     dispatch('dealRound');
   },
   reshuffleIfNeeded ({ commit, state }) {
-    const shoeUsedPercent = 1 - (state.shoe.length / state.settings.deckCount * 52);
+    const shoeUsedPercent = 1 - (state.shoe.length / (state.settings.deckCount * 52));
     if (shoeUsedPercent >= state.settings.shuffleAfterPercent) {
       commit('resetShoe');
     }
