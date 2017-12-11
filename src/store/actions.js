@@ -95,7 +95,7 @@ export default {
   },
   endRound ({ commit, dispatch }) {
     commit('resetActiveHand');
-    commit('compareHands');
+    commit('compareHands', {});
     setTimeout(() => { commit('settleHands'); }, DEFAULT_DELAY * 1.5);
     setTimeout(() => { commit('collectWinnings'); }, DEFAULT_DELAY * 3.5);
     setTimeout(() => { dispatch('resetRound'); }, DEFAULT_DELAY * 4);

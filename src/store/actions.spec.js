@@ -331,7 +331,7 @@ describe('actions', () => {
     });
     it('commits compareHands', () => {
       endRound({ commit, dispatch });
-      expect(commit).toBeCalledWith('compareHands');
+      expect(commit).toBeCalledWith('compareHands', {});
     });
     it('commits settleHands', () => {
       endRound({ commit, dispatch });
