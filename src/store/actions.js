@@ -60,14 +60,14 @@ export default {
       dispatch('stand');
     }
   },
-  hit ({ commit, dispatch, getters, state }, { onlyOnce = false, isDealer = false }) {
+  hit ({ commit, dispatch, getters, state }, { onlyOnce = false, isDealer = false, _blackjack = blackjack }) {
     commit('setIsDealing', { isDealing: true });
     commit('deal', { handIndex: state.activeHandIndex });
     setTimeout(() => {
       commit('checkForBustsAndBlackjacks');
       commit('setIsDealing', { isDealing: false });
       if (getters.activeHand.result || onlyOnce) return dispatch('endTurn');
-      if (blackjack.score(getters.activeHand.cards) === 21) return dispatch('endTurn');
+      if (_blackjack.score(getters.activeHand.cards) === 21) return dispatch('endTurn');
       if (isDealer) dispatch('makeDealerDecision');
     }, DEFAULT_DELAY);
   },
