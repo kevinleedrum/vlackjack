@@ -35,7 +35,7 @@ yarn test
 ## Docker
 ```
 docker build -t  vlackjack .
-docker build -t  vlackjack
+docker run --rm -p 8080:8080 vlackjack
 ```
 
 ## Blackjack Rules
