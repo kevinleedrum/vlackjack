@@ -5,3 +5,4 @@ npm-debug.log
 yarn-error.log
 test/unit/coverage
 .tmp
+coverage/
