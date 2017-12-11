@@ -32,6 +32,12 @@ yarn build
 yarn test
 ```
 
+## Docker
+```
+docker build -t  vlackjack .
+docker build -t  vlackjack
+```
+
 ## Blackjack Rules
 
 Vlackjack follows many common casino rules for Blackjack with a few exceptions.  Insurance against dealer blackjack is not offered.  You may double down on any hand or split any pair, but you can not re-split.  Betting is simplified to one "coin" at the start of each hand, and blackjack pays 2-to-1.  The game is written to use six decks of cards, but it generously only shuffles after 75% of the cards have been played.
