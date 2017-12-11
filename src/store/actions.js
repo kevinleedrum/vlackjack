@@ -52,7 +52,7 @@ export default {
       }, DEFAULT_DELAY);
     }
   },
-  makeDealerDecision ({ state, commit, dispatch, getters }) {
+  makeDealerDecision ({ state, dispatch, getters }) {
     const remainingHands = state.hands.find((hand, i) => !hand.result && i > 0);
     if (getters.dealerTotal < 17 && remainingHands) {
       dispatch('hit', { isDealer: true });
