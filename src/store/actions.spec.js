@@ -172,6 +172,12 @@ describe('actions', () => {
       jest.runAllTimers();
       expect(dispatch).toBeCalledWith('hit', { onlyOnce: false });
     });
+    it('does not dispatch hit if activeHand.cards.length > 1', () => {
+      getters.activeHand.cards.push({ value: '2' });
+      startNextTurn({ commit, dispatch, state, getters });
+      jest.runAllTimers();
+      expect(dispatch).toHaveBeenCalledTimes(0);
+    });
   });
   describe('makeDealerDecision ()', () => {
     const { makeDealerDecision } = actions;
