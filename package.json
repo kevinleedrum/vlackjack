@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --config build/webpack.dev.config.js --open --hot",
+    "docker": "webpack-dev-server --config build/webpack.dev.config.js --host 0.0.0.0 --hot",
     "build": "webpack --config build/webpack.prod.config.js --hide-modules --display-error-details",
     "test": "node node_modules/jest/bin/jest"
   },
