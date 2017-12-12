@@ -1,5 +1,7 @@
 /* eslint-env jest */
 import mutations from './mutations';
+import blackjack from '../lib/blackjack';
+const { BUST, WIN, LOSE, PUSH, BLACKJACK } = blackjack.results;
 
 const state = {
   settings: {
@@ -185,6 +187,42 @@ describe('mutations', () => {
     it('copies the current hand bet to the new hand', () => {
       split(state);
       expect(state.hands[2].bets).toEqual(state.hands[1].bets);
+    });
+  });
+  describe('checkForBustsAndBlackjacks ()', () => {
+    const { checkForBustsAndBlackjacks } = mutations;
+    it('is a function', () => {
+      expect(checkForBustsAndBlackjacks).toBeInstanceOf(Function);
+    });
+    it('sets a hand result to BUST if over 21', () => {
+      state.hands = [
+        { cards: [{ value: 10 }, { value: 10 }, { value: 2 }] }
+      ];
+      checkForBustsAndBlackjacks(state);
+      expect(state.hands[0].result).toEqual(BUST);
+    });
+    it('sets a hand result to BLACKJACK if 21 and two cards', () => {
+      state.hands = [
+        { cards: [{ value: 10 }, { value: 'A' }] }
+      ];
+      checkForBustsAndBlackjacks(state);
+      expect(state.hands[0].result).toEqual(BLACKJACK);
+    });
+    it('sets a player hand result to PUSH if dealer also has blackjack', () => {
+      state.hands = [
+        { cards: [{ value: 10 }, { value: 'A' }] },
+        { cards: [{ value: 10 }, { value: 'A' }] }
+      ];
+      checkForBustsAndBlackjacks(state);
+      expect(state.hands[1].result).toEqual(PUSH);
+    });
+    it('sets a player hand result to LOSE if dealer has blackjack and player does not', () => {
+      state.hands = [
+        { cards: [{ value: 10 }, { value: 'A' }] },
+        { cards: [{ value: 10 }, { value: '10' }] }
+      ];
+      checkForBustsAndBlackjacks(state);
+      expect(state.hands[1].result).toEqual(LOSE);
     });
   });
 });
