@@ -50,6 +50,7 @@ Vlackjack has only been in development for a very short time, so please bear wit
 - A bankrupt/restart screen is still needed
 - Splitting could use some finesse
 - Responsiveness, particularly font scaling, is not perfect
+- Need a lot more tests
 
 ## License
 
