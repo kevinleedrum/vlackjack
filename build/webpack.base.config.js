@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 let config = {
   entry: {
     vendor: [
+      'babel-polyfill',
       'vue',
       'vuex'
     ],

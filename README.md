@@ -12,7 +12,7 @@ Vlackjack is an HTML5 blackjack game with only four production dependencies:
 - [vue](https://vuejs.org/)
 - [vuex](https://vuex.vuejs.org/)
 - [normalize.css](https://necolas.github.io/normalize.css/)
-- [babel-runtime](https://babeljs.io/docs/plugins/transform-runtime/)
+- [babel-polyfill](https://babeljs.io/docs/usage/polyfill/)
 
 All of the animations are performed via CSS3, Vue transitions, and SVG animation.
 

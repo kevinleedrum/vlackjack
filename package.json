@@ -10,7 +10,7 @@
     "test": "node node_modules/jest/bin/jest"
   },
   "dependencies": {
-    "babel-runtime": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "normalize.css": "^7.0.0",
     "vue": "^2.2.6",
     "vuex": "^3.0.1"
@@ -20,7 +20,6 @@
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.0.0",
     "babel-plugin-module-resolver": "^3.0.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^0.28.1",
