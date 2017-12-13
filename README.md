@@ -48,7 +48,7 @@ Vlackjack follows many common casino rules for Blackjack with a few exceptions. 
 Vlackjack has only been in development for a very short time, so please bear with me.
 - IE11 rendering is pretty bad
 - A bankrupt/restart screen is still needed
-- Splitting could use some finessse
+- Splitting could use some finesse
 - Responsiveness, particularly font scaling, is not perfect
 
 ## License
