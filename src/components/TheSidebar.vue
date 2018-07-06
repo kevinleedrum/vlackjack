@@ -33,25 +33,26 @@
 </template>
 
 <script>
-import GameLogo from './GameLogo';
+import GameLogo from './GameLogo'
 export default {
   components: {
     GameLogo
   }
-};
+}
 </script>
 
-<style lang="scss" scoped>
-@import '../style/global.scss';
-.sidebar {
-  display: flex;
-  @media (max-width: 1023px) {
+<style scoped>
+@media (max-width: 1023px) {
+  .sidebar {
     display: none;
   }
+}
+.sidebar {
+  display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  background-color: $secondary-color;
+  background-color: #1F3C40;
   width: 20vw;
   font-size: 0.85em;
   color: #fff;

@@ -7,20 +7,19 @@
 </template>
 
 <script>
-import TheTitleScreen from '@/components/TheTitleScreen';
-import TheSidebar from '@/components/TheSidebar';
-import TheGameArea from '@/components/TheGameArea';
+import TheTitleScreen from '@/components/TheTitleScreen'
+import TheSidebar from '@/components/TheSidebar'
+import TheGameArea from '@/components/TheGameArea'
 export default {
   components: {
     TheTitleScreen,
     TheSidebar,
     TheGameArea
   }
-};
+}
 </script>
 
-<style lang="scss">
-@import './style/global.scss';
+<style>
 .game {
   display: flex;
   flex-flow: row nowrap;
@@ -28,15 +27,13 @@ export default {
 html, body, .game {
   height: 100%;
   overflow: hidden;
+  margin: 0;
 }
 html {
   font-size: 16px;
-  @media (max-height: 768px) {
-    font-size: calc(5px + 0.5vh);
-  }
 }
 body {
-  background: $primary-color;
+  background: #008DC9;
   font-family: 'Helvetica', 'Arial', sans-serif;
 }
 :focus {
@@ -44,10 +41,20 @@ body {
 }
 * {
   user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
+}
+.text-red {
+  color: #E35000;
+}
+.text-primary-color {
+  color: #008DC9;
+}
+.text-secondary-color {
+  color: #1F3C40;
+}
+.text-gold {
+  color: #E1AE0F;
+}
+.text-white {
+  color: #fff;
 }
 </style>

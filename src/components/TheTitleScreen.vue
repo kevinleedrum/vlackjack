@@ -16,27 +16,26 @@
 </template>
 
 <script>
-import GameLogo from './GameLogo';
+import GameLogo from './GameLogo'
 export default {
   components: {
     GameLogo
   },
   mounted () {
-    setTimeout(() => { this.$store.dispatch('startNewGame'); }, 2000);
+    setTimeout(() => { this.$store.dispatch('startNewGame') }, 2000)
   }
-};
+}
 </script>
 
-<style lang="scss" scoped>
-@import '../style/global.scss';
+<style scoped>
 .title-screen {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: $secondary-color;
-  color: $gold;
+  background-color: #1F3C40;
+  color: #E1AE0F;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -46,17 +45,21 @@ export default {
   letter-spacing: 0.5rem;
   transition: all 0.2s;
 }
+@media (max-width: 1023px) {
+  #logo {
+    width: 90%;
+  }
+}
 #logo {
   width: 45%;
-  @media (max-width: 1023px) {
-    width: 90%;
+}
+@media (max-width: 1023px) {
+  #orbits {
+    width: 40%;
   }
 }
 #orbits {
   width: 20%;
-  @media (max-width: 1023px) {
-    width: 40%;
-  }
   opacity: 0.25;
   margin: 2rem;
 }

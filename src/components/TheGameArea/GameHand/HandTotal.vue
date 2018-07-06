@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import blackjack from '@/lib/blackjack';
+import blackjack from '@/lib/blackjack'
 export default {
   props: {
     index: {
@@ -20,17 +20,16 @@ export default {
   },
   computed: {
     total () {
-      const hand = this.$store.state.hands[this.index];
-      if (hand.cards.length < 2) return;
-      if (hand.cards.find(card => card.isFaceDown)) return;
-      return blackjack.score(hand.cards);
+      const hand = this.$store.state.hands[this.index]
+      if (hand.cards.length < 2) return
+      if (hand.cards.find(card => card.isFaceDown)) return
+      return blackjack.score(hand.cards)
     }
   }
-};
+}
 </script>
 
-<style lang="scss" scoped>
-@import '../../../style/global.scss';
+<style scoped>
 .hand-total {
   display: inline-block;
   position: absolute;
@@ -42,15 +41,15 @@ export default {
   font-weight: 600;
   line-height: 2em;
   background: #fff;
-  color: $secondary-color;
+  color: #1F3C40;
   border-radius: 50%;
   text-align: center;
 }
 .hand-total.is-over {
-  background: $red;
+  background: #E35000;
 }
 .hand-total.is-twenty-one {
-  background: $gold;
+  background: #E1AE0F;
 }
 .pop-enter-active {
   transition: all 0.3s ease-out;

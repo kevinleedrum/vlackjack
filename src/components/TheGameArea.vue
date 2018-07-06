@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import GameHand from './TheGameArea/GameHand';
-import TheControls from './TheGameArea/TheControls';
-import { mapState } from 'vuex';
+import GameHand from './TheGameArea/GameHand'
+import TheControls from './TheGameArea/TheControls'
+import { mapState } from 'vuex'
 export default {
   components: {
     GameHand,
@@ -35,7 +35,7 @@ export default {
       'hands'
     ])
   }
-};
+}
 </script>
 
 <style scoped>

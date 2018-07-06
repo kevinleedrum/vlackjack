@@ -1,4 +1,0 @@
-<svg id="card-front" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 180">
-  <title>card-front</title>
-  <path id="card-front-highlight" d="M40,156.33V180a10,10,0,0,0,10,10H150a10,10,0,0,0,10-10V100.16C105.46,102.19,59.48,124.83,40,156.33Z" transform="translate(-40 -10)" fill="#fff" opacity="0.05"/>
-</svg>

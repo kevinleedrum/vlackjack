@@ -1,6 +1,6 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 84.41">
-    <path id="result-win-balloon" d="M266.93,107.8H33.07A3.08,3.08,0,0,0,30,110.87v65.06A3.08,3.08,0,0,0,33.07,179H142.14l7.62,13.21L157.39,179H266.93a3.08,3.08,0,0,0,3.07-3.07V110.87A3.08,3.08,0,0,0,266.93,107.8Z" transform="translate(-10 -107.8)" class="fill-gold" />
+    <path id="result-win-balloon" d="M266.93,107.8H33.07A3.08,3.08,0,0,0,30,110.87v65.06A3.08,3.08,0,0,0,33.07,179H142.14l7.62,13.21L157.39,179H266.93a3.08,3.08,0,0,0,3.07-3.07V110.87A3.08,3.08,0,0,0,266.93,107.8Z" transform="translate(-10 -107.8)" fill="currentColor" class="text-gold" />
     <g class="dollar-sign">
       <path d="M38.29,133.83a17.91,17.91,0,0,1,35.82,0" transform="translate(-10 -107.8)" opacity="0.5"/>
       <path d="M56.09,151.85a17.91,17.91,0,0,1,0-35.82" transform="translate(-10 -107.8)" opacity="0.5"/>

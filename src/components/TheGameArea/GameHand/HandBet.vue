@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import GameCoin from '../GameCoin';
-import blackjack from '@/lib/blackjack';
-const { PUSH, BUST, BLACKJACK, WIN, LOSE } = blackjack.results;
+import GameCoin from '../GameCoin'
+import blackjack from '@/lib/blackjack'
+const { PUSH, BUST, BLACKJACK, WIN, LOSE } = blackjack.results
 export default {
   props: {
     hand: {
@@ -29,13 +29,13 @@ export default {
   },
   computed: {
     isLoss () {
-      return [LOSE, BUST].includes(this.hand.result);
+      return [LOSE, BUST].includes(this.hand.result)
     },
     isWin () {
-      return [PUSH, WIN, BLACKJACK].includes(this.hand.result);
+      return [PUSH, WIN, BLACKJACK].includes(this.hand.result)
     }
   }
-};
+}
 </script>
 
 <style scoped>

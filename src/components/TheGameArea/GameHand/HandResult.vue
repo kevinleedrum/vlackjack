@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import ResultBlackjack from './HandResult/ResultBlackjack';
-import ResultBust from './HandResult/ResultBust';
-import ResultLose from './HandResult/ResultLose';
-import ResultPush from './HandResult/ResultPush';
-import ResultWin from './HandResult/ResultWin';
+import ResultBlackjack from './HandResult/ResultBlackjack'
+import ResultBust from './HandResult/ResultBust'
+import ResultLose from './HandResult/ResultLose'
+import ResultPush from './HandResult/ResultPush'
+import ResultWin from './HandResult/ResultWin'
 export default {
   components: {
     ResultBlackjack,
@@ -29,7 +29,7 @@ export default {
       required: false
     }
   }
-};
+}
 </script>
 
 <style scoped>

@@ -4,13 +4,13 @@
       :class="{ 'is-increasing': isIncreasing }"
     >
       <GameCoin :class="{ 'is-spinning': isIncreasing }" />
-      <small>&times;</small> 
+      <small>&times;</small>
       <span class="number">{{ $store.state.bank }}</span>
     </span>
 </template>
 
 <script>
-import GameCoin from './GameCoin';
+import GameCoin from './GameCoin'
 export default {
   components: {
     GameCoin
@@ -23,21 +23,20 @@ export default {
   watch: {
     '$store.state.bank': function (current, previous) {
       if (current > previous) {
-        const { startingBank, minimumBet } = this.$store.state.settings;
-        if (previous === 0 && current === startingBank - minimumBet) return; // do not animate starting bank
-        if (current > previous) this.isIncreasing = true;
-        setTimeout(() => { this.isIncreasing = false; }, 1000);
+        const { startingBank, minimumBet } = this.$store.state.settings
+        if (previous === 0 && current === startingBank - minimumBet) return // do not animate starting bank
+        if (current > previous) this.isIncreasing = true
+        setTimeout(() => { this.isIncreasing = false }, 1000)
       }
     }
   }
-};
+}
 </script>
 
-<style lang="scss" scoped>
-@import '../../style/global.scss';
+<style scoped>
 .bank {
   background: rgba(0, 0, 0, 0.1);
-  height: 4rem; 
+  height: 4rem;
   display: inline-flex;
   padding: 1rem;
   justify-content: center;
@@ -45,7 +44,7 @@ export default {
   border-radius: 1em;
   font-weight: 500;
   font-size: 3rem;
-  color: $gold;
+  color: #E1AE0F;
   transition: all 0.2s ease;
 }
 .bank small {
