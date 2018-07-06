@@ -33,7 +33,7 @@ html {
   font-size: 16px;
 }
 body {
-  background: #008DC9;
+  background: rgb(63, 111, 194);
   font-family: 'Helvetica', 'Arial', sans-serif;
 }
 :focus {
@@ -43,16 +43,16 @@ body {
   user-select: none;
 }
 .bg-red {
-  background: #E35000;
+  background: #E04030;
 }
 .text-red {
-  color: #E35000;
+  color: #E04030;
 }
 .bg-secondary-color {
-  background: #1F3C40;
+  background: rgb(12, 36, 48);
 }
 .text-secondary-color {
-  color: #1F3C40;
+  color: rgb(12, 36, 48);
 }
 .bg-gold {
   background: #E1AE0F;
