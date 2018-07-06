@@ -38,7 +38,7 @@
     transform: rotateX(0deg);
   }
   100% {
-    transform: rotateX(calc(6 * 360deg));
+    transform: rotateX(2160deg);
   }
 }
 </style>
