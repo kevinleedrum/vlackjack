@@ -42,14 +42,20 @@ body {
 * {
   user-select: none;
 }
+.bg-red {
+  background: #E35000;
+}
 .text-red {
   color: #E35000;
 }
-.text-primary-color {
-  color: #008DC9;
+.bg-secondary-color {
+  background: #1F3C40;
 }
 .text-secondary-color {
   color: #1F3C40;
+}
+.bg-gold {
+  background: #E1AE0F;
 }
 .text-gold {
   color: #E1AE0F;

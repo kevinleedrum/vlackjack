@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="title-screen">
+    <div class="title-screen text-gold bg-secondary-color">
       <GameLogo />
       <svg id="orbits" viewBox="0 0 182 63.95">
         <circle id="orbits-sun" cx="91" cy="31.97" r="31.97" fill="#fff" opacity="0.75"/>
@@ -34,8 +34,6 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #1F3C40;
-  color: #E1AE0F;
   display: flex;
   flex-flow: column;
   justify-content: center;

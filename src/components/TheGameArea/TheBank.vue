@@ -1,6 +1,6 @@
 <template>
     <span
-      class="bank"
+      class="bank text-gold"
       :class="{ 'is-increasing': isIncreasing }"
     >
       <GameCoin :class="{ 'is-spinning': isIncreasing }" />
@@ -44,7 +44,6 @@ export default {
   border-radius: 1em;
   font-weight: 500;
   font-size: 3rem;
-  color: #E1AE0F;
   transition: all 0.2s ease;
 }
 .bank small {
@@ -73,7 +72,7 @@ export default {
     transform: rotateY(0);
   }
   100% {
-    transform: rotateY(6 * 360deg);
+    transform: rotateY(2160deg);
   }
 }
 </style>

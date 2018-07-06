@@ -2,8 +2,8 @@
   <transition name="pop">
     <span
       v-if="total"
-      class="hand-total"
-      :class="{ 'is-over': total > 21, 'is-twenty-one': total === 21 }">
+      class="hand-total text-secondary-color"
+      :class="{ 'bg-red': total > 21, 'bg-gold': total === 21 }">
       {{ total }}
     </span>
   </transition>
@@ -41,15 +41,8 @@ export default {
   font-weight: 600;
   line-height: 2em;
   background: #fff;
-  color: #1F3C40;
   border-radius: 50%;
   text-align: center;
-}
-.hand-total.is-over {
-  background: #E35000;
-}
-.hand-total.is-twenty-one {
-  background: #E1AE0F;
 }
 .pop-enter-active {
   transition: all 0.3s ease-out;

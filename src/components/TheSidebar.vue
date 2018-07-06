@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar">
+  <aside class="sidebar bg-secondary-color">
     <GameLogo />
     <p class="tagline">
       Built with
@@ -52,7 +52,6 @@ export default {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  background-color: #1F3C40;
   width: 20vw;
   font-size: 0.85em;
   color: #fff;

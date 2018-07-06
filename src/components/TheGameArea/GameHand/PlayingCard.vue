@@ -3,13 +3,13 @@
     class="card"
     :class="{ 'face-down': isFaceDown }"
   >
-    <div class="front">
+    <div class="front bg-secondary-color">
       <div class="top-corner">
         <PlayingCardValue :value="card.value" :suit="card.suit" />
         <PlayingCardSuit :suit="card.suit" />
       </div>
     </div>
-    <div class="back" />
+    <div class="back bg-red" />
   </div>
 </template>
 
@@ -59,11 +59,9 @@ export default {
   transform-style: preserve-3d;
 }
 .card .front {
-  background-color: #1F3C40;
   background-image: url('../../../assets/card-front.svg');
 }
 .card .back {
-  background-color: #E35000;
   background-image: url('../../../assets/card-back.svg');
   transform: rotateY(-180deg);
 }
