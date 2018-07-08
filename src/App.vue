@@ -32,6 +32,11 @@ html, body, .game {
 html {
   font-size: 16px;
 }
+@media (max-height: 768px) {
+  html {
+  font-size: calc(5px + 0.5vh);
+  }
+}
 body {
   background: rgb(63, 111, 194);
   font-family: 'Helvetica', 'Arial', sans-serif;
