@@ -71,7 +71,7 @@ export default {
 <style scoped>
 .game-hand {
   position: relative;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
 }
 .game-hand.is-dealer, .game-hand.is-split {
   transform: scale(0.9);
@@ -97,13 +97,21 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.deal-enter-active, .deal-leave-active {
-  transition: translateY 0.3s ease-in-out;
+.deal-enter-active {
+  animation: deal 0.3s;
+}
+.deal-leave-active {
+  animation: deal 0.3s reverse;
 }
 .is-split .deal-leave-active {
-  transition: translateY 0s;
+  animation-duration: 0;
 }
-.deal-enter, .deal-leave-to {
-  transform: translateY(-100vh);
+@keyframes deal {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 </style>
