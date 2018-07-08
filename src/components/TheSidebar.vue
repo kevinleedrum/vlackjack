@@ -20,7 +20,7 @@
       <span>GitHub</span>
     </a>
     <p class="byline">
-      &copy; 2017
+      &copy; 2017&ndash;{{ new Date().getFullYear() }}
       <a
         href="https://linkedin.com/in/kevinleedrum/"
         title="linkedin"
