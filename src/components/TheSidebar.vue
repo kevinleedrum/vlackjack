@@ -42,11 +42,6 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 1023px) {
-  .sidebar {
-    display: none;
-  }
-}
 .sidebar {
   display: flex;
   flex-flow: column;
@@ -55,6 +50,11 @@ export default {
   width: 20vw;
   font-size: 0.85em;
   color: #fff;
+}
+@media (max-width: 1199px) {
+  .sidebar {
+    display: none;
+  }
 }
 .tagline, .github-link {
   text-transform: uppercase;
