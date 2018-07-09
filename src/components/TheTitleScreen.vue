@@ -42,6 +42,7 @@ export default {
   font-weight: 100;
   letter-spacing: 0.5rem;
   transition: all 0.2s;
+  z-index: 200;
 }
 @media (max-width: 1023px) {
   #logo {
