@@ -44,6 +44,7 @@ export default {
   display: flex;
   flex: 1;
   flex-direction: column;
+  z-index: 50;
 }
 .dealer-side {
   margin-top: 1rem;

@@ -50,6 +50,7 @@ export default {
   width: 20vw;
   font-size: 0.85em;
   color: #fff;
+  z-index: 50;
 }
 @media (max-width: 1199px) {
   .sidebar {
