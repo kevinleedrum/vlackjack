@@ -1,6 +1,6 @@
 <template>
   <a class="game-button"
-    :class="{ 'is-disabled': !isEnabled }"
+    :class="{ 'is-disabled': !isEnabled, 'is-highlighted': isHighlighted }"
     @click="doAction"
   >
     <svg style="display: none">
@@ -45,6 +45,7 @@
     <svg>
       <use :xlink:href="'#' + action"></use>
     </svg>
+    <div class="dot"></div>
   </a>
 </template>
 
@@ -58,6 +59,11 @@ export default {
     isEnabled: {
       type: Boolean,
       required: true
+    }
+  },
+  computed: {
+    isHighlighted () {
+      return this.$store.getters.basicStrategyMove === this.action
     }
   },
   methods: {
@@ -93,6 +99,19 @@ export default {
 }
 .game-button.is-disabled svg {
   opacity: 0.5;
+}
+.game-button .dot {
+  display: none;
+}
+.game-button.is-highlighted .dot {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #E1AE0F;
 }
 .game-button:not(.is-disabled):not(:active):hover {
   background-color: #fff;

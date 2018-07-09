@@ -5,6 +5,7 @@ export default {
     return state.hands[state.activeHandIndex]
   },
   dealerTotal (state) {
+    if (!state.hands.length) return
     return blackjack.score(state.hands[0].cards)
   },
   isSplit (state) {
@@ -20,5 +21,11 @@ export default {
     if (!state.hands.length || !state.activeHandIndex) return false
     const cards = state.hands[state.activeHandIndex].cards
     return cards.length === 2
+  },
+  basicStrategyMove (state) {
+    if (!state.hands.length || !state.activeHandIndex || !state.hands[state.activeHandIndex]) return
+    const playerCards = state.hands[state.activeHandIndex].cards
+    const dealerCards = state.hands[0].cards
+    return blackjack.getBasicStrategyMove({ playerCards, dealerCards })
   }
 }

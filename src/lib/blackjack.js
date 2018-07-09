@@ -45,11 +45,13 @@ function shuffle (cardsToShuffle) {
   return cards
 }
 
-function score (cardsToTotal) {
+function score (cardsToTotal, getHighTotal = false) {
+  /* eslint-disable no-debugger */
+  if (!cardsToTotal) debugger
   let cards = cardsToTotal.map(makeAcesLow)
   let lowTotal = cards.reduce(sumCards, 0)
   let highTotal = makeOneAceHigh(cards).reduce(sumCards, 0)
-  if (highTotal <= 21) return highTotal
+  if (highTotal <= 21 || getHighTotal) return highTotal
   return lowTotal
 }
 
@@ -79,4 +81,83 @@ function makeOneAceHigh (cardsToModify) {
   return cards
 }
 
-export default { createShoe, createDeck, shuffle, score, results }
+function canSplit (cards) {
+  if (cards.length !== 2) return false
+  return cards[0].value === cards[1].value
+}
+
+function getBasicStrategyMove ({ playerCards, dealerCards }) {
+  if (score(playerCards) >= 19) return 'stand'
+  if (canSplit(playerCards) && shouldSplit({ playerCards, dealerCards })) return 'split'
+  if (isSoftHand(playerCards)) return getSoftMove({ playerCards, dealerCards })
+  return getHardMove({ playerCards, dealerCards })
+}
+
+function shouldSplit ({ playerCards, dealerCards }) {
+  const splits = {
+    '2': ['2', '3', '4', '5', '6', '7'],
+    '3': ['2', '3', '4', '5', '6', '7'],
+    '4': ['5', '6'],
+    '6': ['2', '3', '4', '5', '6'],
+    '7': ['2', '3', '4', '5', '6', '7'],
+    '9': ['2', '3', '4', '5', '6', '8', '9']
+  }
+  const { value } = playerCards[0]
+  if (['A', '8'].includes(value)) return true
+  if (value === '5') return false
+  const dealerUpCard = dealerCards.find(card => !card.isFaceDown)
+  return splits[value].includes(dealerUpCard.value)
+}
+
+function isSoftHand (cards) {
+  if (!(cards.some(card => card.value === 'A'))) return false
+  return score(cards, false) === score(cards, true)
+}
+
+function getSoftMove ({ playerCards, dealerCards }) {
+  const moveTable = {
+    13: '  hhhddhhhhh',
+    14: '  hhhddhhhhh',
+    15: '  hhdddhhhhh',
+    16: '  hhdddhhhhh',
+    17: '  hddddhhhhh',
+    18: '  sddddsshhh'
+  }
+  const moves = {
+    'h': 'hit',
+    's': 'stand',
+    'd': 'doubleDown'
+  }
+  const playerScore = score(playerCards)
+  const dealerUpCard = dealerCards.find(card => !card.isFaceDown)
+  const dealerUpValue = dealerUpCard.value === 'A' ? 11 : Number(dealerUpCard.value)
+  const move = moveTable[playerScore].charAt(dealerUpValue)
+  return moves[move]
+}
+
+function getHardMove ({ playerCards, dealerCards }) {
+  const moveTable = {
+    9: '  hdddhhhhhh',
+    10: '  ddddddddhh',
+    11: '  dddddddddh',
+    12: '  hhssshhhhh',
+    13: '  ssssshhhhh',
+    14: '  ssssshhhhh',
+    15: '  ssssshhhhh',
+    16: '  ssssshhhhh'
+  }
+  const moves = {
+    'h': 'hit',
+    's': 'stand',
+    'd': 'doubleDown'
+  }
+  const playerScore = score(playerCards)
+  if (playerScore <= 8) return 'hit'
+  if (playerScore >= 17) return 'stand'
+  const dealerUpCard = dealerCards.find(card => !card.isFaceDown)
+  const dealerUpValue = dealerUpCard.value === 'A' ? 11 : Number(dealerUpCard.value)
+  const move = moveTable[playerScore].charAt(dealerUpValue)
+  return moves[move]
+}
+
+export default { createShoe, createDeck, shuffle, score, results, getBasicStrategyMove }
