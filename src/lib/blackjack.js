@@ -130,9 +130,10 @@ function getSoftMove ({ playerCards, dealerCards }) {
   }
   const playerScore = score(playerCards)
   const dealerUpCard = dealerCards.find(card => !card.isFaceDown)
-  const dealerUpValue = dealerUpCard.value === 'A' ? 11 : Number(dealerUpCard.value)
-  const move = moveTable[playerScore].charAt(dealerUpValue)
-  return moves[move]
+  const dealerUpValue = score([dealerUpCard])
+  let move = moves[moveTable[playerScore].charAt(dealerUpValue)]
+  if (move === 'doubleDown' && playerCards.length > 2) return 'hit'
+  return move
 }
 
 function getHardMove ({ playerCards, dealerCards }) {
@@ -155,9 +156,10 @@ function getHardMove ({ playerCards, dealerCards }) {
   if (playerScore <= 8) return 'hit'
   if (playerScore >= 17) return 'stand'
   const dealerUpCard = dealerCards.find(card => !card.isFaceDown)
-  const dealerUpValue = dealerUpCard.value === 'A' ? 11 : Number(dealerUpCard.value)
-  const move = moveTable[playerScore].charAt(dealerUpValue)
-  return moves[move]
+  const dealerUpValue = score([dealerUpCard])
+  let move = moves[moveTable[playerScore].charAt(dealerUpValue)]
+  if (move === 'doubleDown' && playerCards.length > 2) return 'hit'
+  return move
 }
 
 export default { createShoe, createDeck, shuffle, score, results, getBasicStrategyMove }
