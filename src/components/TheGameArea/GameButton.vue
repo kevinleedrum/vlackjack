@@ -103,7 +103,7 @@ export default {
 .game-button .dot {
   display: none;
 }
-.game-button.is-highlighted .dot {
+.game-button.is-highlighted:not(.is-disabled) .dot {
   display: block;
   position: absolute;
   top: 0;
