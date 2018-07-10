@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar bg-secondary-color">
+  <aside class="sidebar">
     <GameLogo />
     <p class="tagline">
       Built with
@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .sidebar {
   display: flex;
   flex-flow: column;
@@ -49,8 +49,9 @@ export default {
   align-items: center;
   width: 20vw;
   font-size: 0.85em;
-  color: #fff;
+  color: $white;
   z-index: 50;
+  background: $secondary-color;
 }
 @media (max-width: 1199px) {
   .sidebar {
@@ -74,14 +75,14 @@ export default {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 .sidebar p a:hover {
-  border-color: #fff;
+  border-color: $white;
 }
 .github-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid $white;
+  color: $white;
   text-decoration: none;
   opacity: 0.5;
   width: 50%;

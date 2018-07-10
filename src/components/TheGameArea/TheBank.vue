@@ -1,6 +1,6 @@
 <template>
     <span
-      class="bank text-gold"
+      class="bank"
       :class="{ 'is-increasing': isIncreasing }"
     >
       <GameCoin :class="{ 'is-spinning': isIncreasing }" />
@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .bank {
   background: rgba(0, 0, 0, 0.1);
   height: 4rem;
@@ -45,6 +45,7 @@ export default {
   font-weight: 500;
   font-size: 3rem;
   transition: all 0.2s ease;
+  color: $gold;
 }
 .bank small {
   font-size: 2rem;

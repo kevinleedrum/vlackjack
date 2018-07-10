@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .game {
   display: flex;
   flex-flow: row nowrap;
@@ -41,7 +41,7 @@ html {
   }
 }
 body {
-  background: rgb(63, 111, 194);
+  background: $primary-color;
   font-family: 'Helvetica', 'Arial', sans-serif;
 }
 :focus {
@@ -50,25 +50,16 @@ body {
 * {
   user-select: none;
 }
-.bg-red {
-  background: #E04030;
-}
 .text-red {
   color: #E04030;
 }
-.bg-secondary-color {
-  background: rgb(12, 36, 48);
-}
 .text-secondary-color {
   color: rgb(12, 36, 48);
-}
-.bg-gold {
-  background: #E1AE0F;
 }
 .text-gold {
   color: #E1AE0F;
 }
 .text-white {
-  color: #fff;
+  color: $white;
 }
 </style>

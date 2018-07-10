@@ -8,7 +8,7 @@
         viewBox="0 0 24 24"
         :style="starStyle"
       >
-        <path opacity="0.1" fill="#ffffff" d="M14.1,14.1L12,24l-2.1-9.9L0,12l9.9-2.1L12,0l2.1,9.9L24,12L14.1,14.1z"/>
+        <path opacity="0.1" fill="currentColor" class="text-white" d="M14.1,14.1L12,24l-2.1-9.9L0,12l9.9-2.1L12,0l2.1,9.9L24,12L14.1,14.1z"/>
       </svg>
     </div>
   </div>
