@@ -63,6 +63,7 @@ export default {
   },
   computed: {
     isHighlighted () {
+      if (!this.$store.state.settings.showBasicStrategy) return
       return this.$store.getters.basicStrategyMove === this.action
     }
   },

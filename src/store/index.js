@@ -11,7 +11,8 @@ const state = {
     deckCount: 6,
     startingBank: 25,
     shuffleAfterPercent: 0.75,
-    minimumBet: 1
+    minimumBet: 1,
+    showBasicStrategy: false
   },
   bank: 0,
   shoe: [],

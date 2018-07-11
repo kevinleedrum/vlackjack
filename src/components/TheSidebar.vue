@@ -19,6 +19,11 @@
       <i class="github-logo"></i>
       <span>GitHub</span>
     </a>
+    <button @click="toggleBasicStrategy" class="toggle">
+      Basic Strategy Training
+      <span v-if="showBasicStrategy">ON</span>
+      <span v-else>OFF</span>
+    </button>
     <p class="byline">
       &copy; 2017&ndash;{{ new Date().getFullYear() }}
       <a
@@ -33,19 +38,23 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import GameLogo from './GameLogo'
 export default {
   components: {
     GameLogo
   },
   computed: {
-    ...mapState([ 'showDrawer' ])
+    ...mapState({
+      showDrawer: state => state.showDrawer,
+      showBasicStrategy: state => state.settings.showBasicStrategy
+    })
   },
   methods: {
     closeDrawer () {
       this.$store.commit('toggleDrawer', { show: false })
-    }
+    },
+    ...mapMutations([ 'toggleBasicStrategy' ])
   }
 }
 </script>
@@ -91,6 +100,12 @@ export default {
 }
 .sidebar p a:hover {
   border-color: $white;
+}
+.toggle {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 2rem;
+  color: #fff;
 }
 .github-link {
   display: inline-flex;

@@ -15,6 +15,9 @@ export default {
   toggleDrawer (state, { show }) {
     state.showDrawer = show === undefined ? !state.showDrawer : show
   },
+  toggleBasicStrategy (state) {
+    state.settings.showBasicStrategy = !state.settings.showBasicStrategy
+  },
   resetShoe (state, { _blackjack = blackjack }) {
     state.shoe = _blackjack.createShoe(state.settings.deckCount)
     state.shoe = _blackjack.shuffle(state.shoe)
