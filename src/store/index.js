@@ -17,7 +17,8 @@ const state = {
   shoe: [],
   hands: [],
   activeHandIndex: null,
-  isDealing: false
+  isDealing: false,
+  showDrawer: false
 }
 
 export default new Vuex.Store({

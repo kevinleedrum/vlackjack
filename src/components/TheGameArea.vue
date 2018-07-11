@@ -1,5 +1,5 @@
 <template>
-  <main class="game-area">
+  <main class="game-area" @click="closeDrawer">
     <section class="dealer-side">
       <GameHand
         v-if="hands.length"
@@ -34,6 +34,11 @@ export default {
       'activeHandIndex',
       'hands'
     ])
+  },
+  methods: {
+    closeDrawer () {
+      this.$store.commit('toggleDrawer', { show: false })
+    }
   }
 }
 </script>

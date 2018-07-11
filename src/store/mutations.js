@@ -12,6 +12,9 @@ export default {
   hideTitleScreen (state) {
     state.isTitleShowing = false
   },
+  toggleDrawer (state, { show }) {
+    state.showDrawer = show === undefined ? !state.showDrawer : show
+  },
   resetShoe (state, { _blackjack = blackjack }) {
     state.shoe = _blackjack.createShoe(state.settings.deckCount)
     state.shoe = _blackjack.shuffle(state.shoe)

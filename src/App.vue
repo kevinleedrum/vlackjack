@@ -3,6 +3,7 @@
     <TheStars />
     <TheSidebar />
     <TheGameArea />
+    <TheMenuButton />
     <TheTitleScreen v-if="$store.state.isTitleShowing" />
   </div>
 </template>
@@ -12,12 +13,14 @@ import TheTitleScreen from '@/components/TheTitleScreen'
 import TheSidebar from '@/components/TheSidebar'
 import TheStars from '@/components/TheGameArea/TheStars'
 import TheGameArea from '@/components/TheGameArea'
+import TheMenuButton from '@/components/TheMenuButton'
 export default {
   components: {
     TheTitleScreen,
     TheSidebar,
     TheStars,
-    TheGameArea
+    TheGameArea,
+    TheMenuButton
   }
 }
 </script>

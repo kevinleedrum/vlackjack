@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar">
+  <aside class="sidebar" :class="{ 'open': showDrawer }">
     <GameLogo />
     <p class="tagline">
       Built with
@@ -33,29 +33,44 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import GameLogo from './GameLogo'
 export default {
   components: {
     GameLogo
+  },
+  computed: {
+    ...mapState([ 'showDrawer' ])
+  },
+  methods: {
+    closeDrawer () {
+      this.$store.commit('toggleDrawer', { show: false })
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .sidebar {
-  display: flex;
+  display: flex !important;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 20vw;
+  width: 320px;
   font-size: 0.85em;
   color: $white;
-  z-index: 50;
+  z-index: 100;
   background: $secondary-color;
+  height: 100%;
+  transition: transform 0.2s ease-in;
 }
 @media (max-width: 1199px) {
   .sidebar {
-    display: none;
+    position: absolute;
+    transform: translateX(-320px);
+  }
+  .sidebar.open {
+    transform: translateX(0px);
   }
 }
 .tagline, .github-link {
