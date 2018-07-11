@@ -1,5 +1,9 @@
 <template>
-  <main class="game-area" @click="closeDrawer">
+  <main
+    @click="closeDrawer"
+    :class="{ 'is-dimmed': showDrawer }"
+    class="game-area"
+  >
     <section class="dealer-side">
       <GameHand
         v-if="hands.length"
@@ -16,7 +20,7 @@
         :index="i"
       />
     </section>
-    <TheControls />
+    <TheControls :class="{ 'no-pointer-events': showDrawer }" />
   </main>
 </template>
 
@@ -32,7 +36,8 @@ export default {
   computed: {
     ...mapState([
       'activeHandIndex',
-      'hands'
+      'hands',
+      'showDrawer'
     ])
   },
   methods: {
@@ -50,6 +55,12 @@ export default {
   flex: 1;
   flex-direction: column;
   z-index: 50;
+}
+.is-dimmed {
+  opacity: 0.5;
+}
+.no-pointer-events {
+  pointer-events: none;
 }
 .dealer-side {
   margin-top: 1rem;
