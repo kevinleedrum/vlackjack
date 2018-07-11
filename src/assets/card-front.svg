@@ -1,4 +1,4 @@
-<svg id="card-front" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 180">
-  <title>card-front</title>
-  <path id="card-front-highlight" d="M40,156.33V180a10,10,0,0,0,10,10H150a10,10,0,0,0,10-10V100.16C105.46,102.19,59.48,124.83,40,156.33Z" transform="translate(-40 -10)" fill="#fff" opacity="0.05"/>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 180" xml:space="preserve">
+  <path class="st0" fill="#fff" opacity="0.03" d="M0,146.3V170c0,5.5,4.5,10,10,10h100c5.5,0,10-4.5,10-10V90.2C65.5,92.2,19.5,114.8,0,146.3z"/>
 </svg>
