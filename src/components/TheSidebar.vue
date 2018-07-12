@@ -21,24 +21,27 @@
       </svg>
       Show Basic Strategy Hint
     </button>
-    <p class="byline">
-      &copy; 2017&ndash;{{ new Date().getFullYear() }}
-      <a
-        href="https://linkedin.com/in/kevinleedrum/"
-        title="linkedin"
-        target="_blank"
-      >
-        Kevin Lee Drum
-      </a>
-      <br>
-      <a
-        href="https://github.com/kevinleedrum/vlackjack/"
-        title="GitHub project page"
-        target="_blank"
-      >
-        GitHub project page
-      </a>
-    </p>
+    <div class="footer">
+      <p>
+        &copy; 2017&ndash;{{ new Date().getFullYear() }}
+        <a
+          href="https://twitter.com/kevinleedrum"
+          title="twitter"
+          target="_blank"
+        >
+          Kevin Lee Drum
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://github.com/kevinleedrum/vlackjack/"
+          title="GitHub project page"
+          target="_blank"
+        >
+          GitHub project page
+        </a>
+      </p>
+    </div>
   </aside>
 </template>
 
@@ -87,12 +90,12 @@ export default {
     transform: translateX(0px);
   }
 }
-.tagline, .github-link {
+.tagline {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
 }
 .sidebar #logo {
-  width: 90%;
+  width: 85%;
 }
 .sidebar p {
   margin: 1rem 0;
@@ -113,7 +116,7 @@ export default {
   border: 0;
   color: #fff;
   cursor: pointer;
-  height: 48px;
+  padding: 1rem;
   opacity: 0.85;
   font-size: 1.2rem;
 }
@@ -125,32 +128,9 @@ export default {
   width: 24px;
   padding-right: 8px;
 }
-.github-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid $white;
-  color: $white;
-  text-decoration: none;
-  opacity: 0.5;
-  width: 50%;
-  border-radius: 2rem;
-  padding: 0.25rem;
-}
-.github-link:hover {
-  opacity: 1;
-}
-.github-logo {
-  display: inline-block;
-  background: url('../assets/github.svg') no-repeat;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-.github-link span {
-  padding-left: 0.5rem;
-}
-.byline {
+.footer {
   position: absolute;
   bottom: 0;
+  opacity: 0.85;
 }
 </style>
