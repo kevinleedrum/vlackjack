@@ -11,18 +11,15 @@
         Vue.js
       </a>
     </p>
-    <a
-      href="https://github.com/kevinleedrum/vlackjack/"
-      title="GitHub project page"
-      class="github-link"
-    >
-      <i class="github-logo"></i>
-      <span>GitHub</span>
-    </a>
     <button @click="toggleBasicStrategy" class="toggle">
-      Basic Strategy Training
-      <span v-if="showBasicStrategy">ON</span>
-      <span v-else>OFF</span>
+      <svg version="1.1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xml:space="preserve">
+        <path v-if="showBasicStrategy" d="M18,1H6C3.3,1,1,3.3,1,6v12c0,2.8,2.3,5,5,5h12c2.8,0,5-2.3,5-5V6C23,3.3,20.8,1,18,1z M19.1,7.3l-8.5,11.1
+          c-0.3,0.4-0.7,0.6-1.2,0.6c0,0,0,0,0,0c-0.5,0-0.9-0.2-1.2-0.6l-3.3-4.6c-0.5-0.7-0.3-1.6,0.3-2.1c0.7-0.5,1.6-0.3,2.1,0.3L9.4,15
+          l7.3-9.5c0.5-0.7,1.4-0.8,2.1-0.3C19.5,5.7,19.6,6.7,19.1,7.3z"/>
+        <path v-else d="M18,3c1.7,0,3,1.3,3,3v12c0,1.7-1.3,3-3,3H6c-1.7,0-3-1.3-3-3V6c0-1.7,1.3-3,3-3H18 M18,1H6C3.3,1,1,3.3,1,6v12
+          c0,2.8,2.3,5,5,5h12c2.8,0,5-2.3,5-5V6C23,3.3,20.8,1,18,1L18,1z"/>
+      </svg>
+      Show Basic Strategy Hint
     </button>
     <p class="byline">
       &copy; 2017&ndash;{{ new Date().getFullYear() }}
@@ -32,6 +29,14 @@
         target="_blank"
       >
         Kevin Lee Drum
+      </a>
+      <br>
+      <a
+        href="https://github.com/kevinleedrum/vlackjack/"
+        title="GitHub project page"
+        target="_blank"
+      >
+        GitHub project page
       </a>
     </p>
   </aside>
@@ -66,7 +71,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 320px;
-  font-size: 0.85em;
+  font-size: 1rem;
   color: $white;
   z-index: 100;
   background: $secondary-color;
@@ -102,10 +107,23 @@ export default {
   border-color: $white;
 }
 .toggle {
+  display: flex;
+  align-items: center;
   background: transparent;
-  border: 1px solid #fff;
-  border-radius: 2rem;
+  border: 0;
   color: #fff;
+  cursor: pointer;
+  height: 48px;
+  opacity: 0.85;
+  font-size: 1.2rem;
+}
+.toggle:hover {
+  opacity: 1;
+}
+.toggle svg {
+  height: 24px;
+  width: 24px;
+  padding-right: 8px;
 }
 .github-link {
   display: inline-flex;
