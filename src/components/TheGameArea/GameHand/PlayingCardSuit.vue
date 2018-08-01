@@ -52,8 +52,8 @@ export default {
 </script>
 
 <style scoped>
-.suit {
-  display: inherit;
+.suit svg {
+  width: 100%;
   height: 3rem;
 }
 </style>

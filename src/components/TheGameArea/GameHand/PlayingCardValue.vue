@@ -70,8 +70,8 @@ export default {
 </script>
 
 <style scoped>
-.value {
-  display: inherit;
+.value svg {
+  width: 100%;
   height: 3rem;
 }
 </style>
