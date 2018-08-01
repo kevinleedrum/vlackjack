@@ -26,6 +26,8 @@ export default {
     for (let i = 0; i < numStars; i++) {
       let size = minSize + Math.random() * (maxSize - minSize)
       let top = Math.random() * window.innerHeight
+      top += 'px'
+      size += 'px'
       let animationDuration = minDuration + (Math.random() * (maxDuration - minDuration))
       animationDuration += 's'
       let animationDelay = Math.random() * maxDuration
