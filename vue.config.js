@@ -5,5 +5,10 @@ module.exports = {
         data: '@import "@/variables.scss";'
       }
     }
+  },
+  configureWebpack: {
+    output: {
+      publicPath: '/vlackjack/'
+    }
   }
 }
