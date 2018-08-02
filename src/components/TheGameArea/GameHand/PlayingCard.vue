@@ -54,7 +54,6 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   backface-visibility: hidden;
-  transform: translateZ(0);
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
