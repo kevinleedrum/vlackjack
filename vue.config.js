@@ -6,9 +6,9 @@ module.exports = {
       }
     }
   },
-  configureWebpack: {
-    output: {
-      publicPath: '/vlackjack/'
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      config.output.publicPath = '/vlackjack/'
     }
   }
 }
