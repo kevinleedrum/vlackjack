@@ -3,14 +3,14 @@
     <span
       v-if="total"
       class="hand-total"
-      :class="{ 'is-over': total > 21, 'is-twenty-one': total === 21 }">
+      :class="{ 'bust': total > 21, 'twenty-one': total === 21 }">
       {{ total }}
     </span>
   </transition>
 </template>
 
 <script>
-import blackjack from '@/lib/blackjack';
+import blackjack from '@/lib/blackjack'
 export default {
   props: {
     index: {
@@ -20,17 +20,16 @@ export default {
   },
   computed: {
     total () {
-      const hand = this.$store.state.hands[this.index];
-      if (hand.cards.length < 2) return;
-      if (hand.cards.find(card => card.isFaceDown)) return;
-      return blackjack.score(hand.cards);
+      const hand = this.$store.state.hands[this.index]
+      if (hand.cards.length < 2) return
+      if (hand.cards.find(card => card.isFaceDown)) return
+      return blackjack.score(hand.cards)
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/global.scss';
 .hand-total {
   display: inline-block;
   position: absolute;
@@ -41,15 +40,15 @@ export default {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 2em;
-  background: #fff;
-  color: $secondary-color;
+  background: $white;
   border-radius: 50%;
   text-align: center;
+  color: $secondary-color;
 }
-.hand-total.is-over {
+.bust {
   background: $red;
 }
-.hand-total.is-twenty-one {
+.twenty-one {
   background: $gold;
 }
 .pop-enter-active {

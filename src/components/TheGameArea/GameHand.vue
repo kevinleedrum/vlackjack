@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <div
     class="game-hand"
     :class="handClasses"
   >
@@ -18,12 +18,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import blackjack from '@/lib/blackjack';
-import PlayingCard from './GameHand/PlayingCard';
-import HandResult from './GameHand/HandResult';
-import HandTotal from './GameHand/HandTotal';
-import HandBet from './GameHand/HandBet';
+import { mapGetters } from 'vuex'
+import blackjack from '@/lib/blackjack'
+import PlayingCard from './GameHand/PlayingCard'
+import HandResult from './GameHand/HandResult'
+import HandTotal from './GameHand/HandTotal'
+import HandBet from './GameHand/HandBet'
 export default {
   components: {
     PlayingCard,
@@ -43,35 +43,35 @@ export default {
   },
   computed: {
     isActiveHand () {
-      return this.$store.state.activeHandIndex === this.index;
+      return this.$store.state.activeHandIndex === this.index
     },
     isInactiveHand () {
-      return this.isSplit && !this.isActiveHand && this.$store.state.activeHandIndex && this.index > 0;
+      return this.isSplit && !this.isActiveHand && this.$store.state.activeHandIndex && this.index > 0
     },
     handClasses () {
-      let classes = [];
-      if (this.isActiveHand && this.index > 0) classes.push('is-active');
-      if (this.isSplit && this.index > 0) classes.push('is-split');
-      if (this.index === 0) classes.push('is-dealer');
-      if (this.isInactiveHand) classes.push('is-inactive');
-      return classes;
+      let classes = []
+      if (this.isActiveHand && this.index > 0) classes.push('is-active')
+      if (this.isSplit && this.index > 0) classes.push('is-split')
+      if (this.index === 0) classes.push('is-dealer')
+      if (this.isInactiveHand) classes.push('is-inactive')
+      return classes
     },
     ...mapGetters(['isSplit'])
   },
   methods: {
     toResultString (resultValue) {
       for (const key in blackjack.results) {
-        if (blackjack.results[key] === resultValue) return key;
+        if (blackjack.results[key] === resultValue) return key
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>
 .game-hand {
   position: relative;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
 }
 .game-hand.is-dealer, .game-hand.is-split {
   transform: scale(0.9);
@@ -97,13 +97,21 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.deal-enter-active, .deal-leave-active {
-  transition: translateY 0.3s ease-in-out;
+.deal-enter-active {
+  animation: deal 0.3s;
+}
+.deal-leave-active {
+  animation: deal 0.3s reverse;
 }
 .is-split .deal-leave-active {
-  transition: translateY 0s;
+  animation-duration: 0;
 }
-.deal-enter, .deal-leave-to {
-  transform: translateY(-100vh);
+@keyframes deal {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 </style>

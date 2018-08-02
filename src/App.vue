@@ -1,26 +1,31 @@
 <template>
   <div class="game">
+    <TheStars />
     <TheSidebar />
     <TheGameArea />
+    <TheMenuButton />
     <TheTitleScreen v-if="$store.state.isTitleShowing" />
   </div>
 </template>
 
 <script>
-import TheTitleScreen from '@/components/TheTitleScreen';
-import TheSidebar from '@/components/TheSidebar';
-import TheGameArea from '@/components/TheGameArea';
+import TheTitleScreen from '@/components/TheTitleScreen'
+import TheSidebar from '@/components/TheSidebar'
+import TheStars from '@/components/TheGameArea/TheStars'
+import TheGameArea from '@/components/TheGameArea'
+import TheMenuButton from '@/components/TheMenuButton'
 export default {
   components: {
     TheTitleScreen,
     TheSidebar,
-    TheGameArea
+    TheStars,
+    TheGameArea,
+    TheMenuButton
   }
-};
+}
 </script>
 
 <style lang="scss">
-@import './style/global.scss';
 .game {
   display: flex;
   flex-flow: row nowrap;
@@ -28,11 +33,14 @@ export default {
 html, body, .game {
   height: 100%;
   overflow: hidden;
+  margin: 0;
 }
 html {
   font-size: 16px;
-  @media (max-height: 768px) {
-    font-size: calc(5px + 0.5vh);
+}
+@media (max-height: 768px) {
+  html {
+  font-size: calc(5px + 0.5vh);
   }
 }
 body {
@@ -44,10 +52,17 @@ body {
 }
 * {
   user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
+}
+.text-red {
+  color: #E04030;
+}
+.text-secondary-color {
+  color: rgb(12, 36, 48);
+}
+.text-gold {
+  color: #E1AE0F;
+}
+.text-white {
+  color: $white;
 }
 </style>

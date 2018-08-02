@@ -23,9 +23,9 @@
 </template>
 
 <script>
-import GameButton from './GameButton';
-import TheBank from './TheBank';
-import { mapGetters, mapState } from 'vuex';
+import GameButton from './GameButton'
+import TheBank from './TheBank'
+import { mapGetters, mapState } from 'vuex'
 export default {
   components: {
     GameButton,
@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     isPlayerTurn () {
-      return !this.isDealing && this.activeHandIndex > 0;
+      return !this.isDealing && this.activeHandIndex > 0
     },
     ...mapState([
       'isDealing',
@@ -44,7 +44,7 @@ export default {
       'canDoubleDown'
     ])
   }
-};
+}
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-  <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.73 20.85" class="fill-red">
+  <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.73 20.85" fill="currentColor" class="text-red">
     <title>vlackjack</title>
     <path d="M130.15,110.15l8.15-20.31h1.45l8.15,20.31Z" transform="translate(-9.13 -89.57)" opacity="0.5"/>
     <path d="M51.12,110.15l8.15-20.31h1.45l8.15,20.31Z" transform="translate(-9.13 -89.57)" opacity="0.5"/>

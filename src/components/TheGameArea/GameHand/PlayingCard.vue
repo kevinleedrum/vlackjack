@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import PlayingCardValue from './PlayingCardValue';
-import PlayingCardSuit from './PlayingCardSuit';
+import PlayingCardValue from './PlayingCardValue'
+import PlayingCardSuit from './PlayingCardSuit'
 export default {
   components: {
     PlayingCardValue,
@@ -31,11 +31,10 @@ export default {
       required: true
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/global.scss';
 .card {
   position: relative;
   display: inline-block;
@@ -55,18 +54,17 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   backface-visibility: hidden;
-  transform: translateZ(0);
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
 .card .front {
-  background-color: $secondary-color;
   background-image: url('../../../assets/card-front.svg');
+  background-color: $secondary-color;
 }
 .card .back {
-  background-color: $red;
   background-image: url('../../../assets/card-back.svg');
   transform: rotateY(-180deg);
+  background-color: $red;
 }
 .card.face-down .back {
   transform: rotateY(0deg);
