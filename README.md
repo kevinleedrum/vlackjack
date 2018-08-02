@@ -23,7 +23,7 @@ yarn serve
 yarn build
 
 # run unit tests
-yarn test
+yarn test:unit
 ```
 
 ## Rules
