@@ -12,12 +12,14 @@ export default {
     return state.hands.length > 2
   },
   canSplit (state) {
+    if (state.bank < state.settings.minimumBet) return false
     if (!state.hands.length || !state.activeHandIndex) return false
     if (state.hands.length > 2) return false
     const cards = state.hands[state.activeHandIndex].cards
     return cards.length === 2 && cards[0].value === cards[1].value
   },
   canDoubleDown (state) {
+    if (state.bank < state.settings.minimumBet) return false
     if (!state.hands.length || !state.activeHandIndex) return false
     const cards = state.hands[state.activeHandIndex].cards
     return cards.length === 2
