@@ -31,6 +31,7 @@ export default {
     return blackjack.getBasicStrategyMove({ playerCards, dealerCards })
   },
   isGameOver (state) {
+    if (!state.hands.length) return false
     const cards = state.hands.map(hand => hand.cards.length).reduce((a, b) => a + b)
     const bets = state.hands[1].bets.length
     return state.bank < state.settings.minimumBet && !bets && !cards && !state.isDealing
