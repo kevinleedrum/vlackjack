@@ -20,6 +20,7 @@
         :index="i"
       />
     </section>
+    <TheGameOverButton v-if="isGameOver" />
     <TheControls :class="{ 'no-pointer-events': showDrawer }" />
   </main>
 </template>
@@ -27,18 +28,21 @@
 <script>
 import GameHand from './TheGameArea/GameHand'
 import TheControls from './TheGameArea/TheControls'
-import { mapState } from 'vuex'
+import TheGameOverButton from './TheGameArea/TheGameOverButton'
+import { mapState, mapGetters } from 'vuex'
 export default {
   components: {
     GameHand,
-    TheControls
+    TheControls,
+    TheGameOverButton
   },
   computed: {
     ...mapState([
       'activeHandIndex',
       'hands',
       'showDrawer'
-    ])
+    ]),
+    ...mapGetters(['isGameOver'])
   },
   methods: {
     closeDrawer () {
