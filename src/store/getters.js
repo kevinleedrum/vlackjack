@@ -32,6 +32,7 @@ export default {
   },
   isGameOver (state) {
     const cards = state.hands.map(hand => hand.cards.length).reduce((a, b) => a + b)
-    return state.bank < state.settings.minimumBet && !cards && !state.isDealing
+    const bets = state.hands[1].bets.length
+    return state.bank < state.settings.minimumBet && !bets && !cards && !state.isDealing
   }
 }
