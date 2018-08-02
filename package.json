@@ -1,10 +1,11 @@
 {
   "name": "vlackjack",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "deploy": "git subtree push --prefix dist origin gh-pages",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
