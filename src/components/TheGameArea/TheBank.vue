@@ -1,13 +1,13 @@
 <template>
-    <span
-      class="bank"
-      :class="{ 'is-increasing': isIncreasing }"
-    >
-      <GameCoin :class="{ 'is-spinning': isIncreasing }" />
-      <audio v-if="$store.state.settings.isSoundEnabled && isIncreasing" autoplay src="/collect.mp3"></audio>
-      <small>&times;</small>
-      <span class="number">{{ $store.state.bank }}</span>
-    </span>
+  <span
+    class="bank"
+    :class="{ 'is-increasing': isIncreasing }"
+  >
+    <GameCoin :class="{ 'is-spinning': isIncreasing }" />
+    <audio v-if="$store.state.settings.isSoundEnabled && isIncreasing" autoplay src="/collect.mp3"></audio>
+    <small>&times;</small>
+    <span class="number">{{ $store.state.bank }}</span>
+  </span>
 </template>
 
 <script>
