@@ -37,7 +37,7 @@ export default {
     },
     ...mapState([
       'isDealing',
-      'isTvMode',
+      'isArcadeMode',
       'activeHandIndex'
     ]),
     ...mapGetters([
@@ -47,7 +47,7 @@ export default {
   },
   watch: {
     isPlayerTurn (isPlayerTurn) {
-      if (isPlayerTurn && this.isTvMode) this.$nextTick(() => this.focusButton(-1))
+      if (isPlayerTurn && this.isArcadeMode) this.$nextTick(() => this.focusButton(-1))
     }
   },
   mounted () {

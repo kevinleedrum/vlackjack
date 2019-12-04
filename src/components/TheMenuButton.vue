@@ -1,5 +1,5 @@
 <template>
-  <button v-if="!isTvMode" @click="toggleDrawer" class="menu-button">
+  <button v-if="!isArcadeMode" @click="toggleDrawer" class="menu-button">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve">
     <path v-if="!showDrawer" d="M444.8,291.1l42.6,24.6c4.9,2.8,7.1,8.6,5.5,14c-11.1,35.6-30,67.8-54.7,94.6c-3.8,4.1-10,5.1-14.8,2.3
       l-42.6-24.6c-17.9,15.4-38.5,27.3-60.8,35.1v49.2c0,5.6-3.9,10.5-9.4,11.7c-35,7.9-72.5,8.3-109.2,0c-5.5-1.2-9.4-6.1-9.4-11.7
@@ -20,7 +20,7 @@
 import { mapMutations, mapState } from 'vuex'
 export default {
   computed: {
-    ...mapState([ 'isTvMode', 'showDrawer' ])
+    ...mapState([ 'isArcadeMode', 'showDrawer' ])
   },
   methods: {
     ...mapMutations([ 'toggleDrawer' ])

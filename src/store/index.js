@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 const state = {
   isTitleShowing: true,
-  isTvMode: window.location.search.includes('tv'),
+  isArcadeMode: window.location.search.includes('arcade'),
   settings: {
     deckCount: 6,
     startingBank: 25,

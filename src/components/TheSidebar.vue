@@ -1,7 +1,7 @@
 <template>
   <aside class="sidebar" :class="{ 'open': showDrawer }">
     <GameLogo />
-    <template v-if="!isTvMode">
+    <template v-if="!isArcadeMode">
       <p class="tagline">
         Built with
         <a
@@ -69,7 +69,7 @@ export default {
   computed: {
     ...mapState({
       isSoundEnabled: state => state.settings.isSoundEnabled,
-      isTvMode: state => state.isTvMode,
+      isArcadeMode: state => state.isArcadeMode,
       showDrawer: state => state.showDrawer,
       showBasicStrategy: state => state.settings.showBasicStrategy
     })
