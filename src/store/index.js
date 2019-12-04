@@ -7,12 +7,14 @@ Vue.use(Vuex)
 
 const state = {
   isTitleShowing: true,
+  isTvMode: window.location.search.includes('tv'),
   settings: {
     deckCount: 6,
     startingBank: 25,
     shuffleAfterPercent: 0.75,
     minimumBet: 1,
-    showBasicStrategy: false
+    showBasicStrategy: false,
+    isSoundEnabled: true
   },
   bank: 0,
   shoe: [],

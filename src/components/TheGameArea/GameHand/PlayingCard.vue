@@ -10,6 +10,7 @@
       </div>
     </div>
     <div class="back" />
+    <audio v-if="$store.state.settings.isSoundEnabled" autoplay src="/deal.mp3"></audio>
   </div>
 </template>
 

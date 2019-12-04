@@ -4,6 +4,7 @@
       :class="{ 'is-increasing': isIncreasing }"
     >
       <GameCoin :class="{ 'is-spinning': isIncreasing }" />
+      <audio v-if="$store.state.settings.isSoundEnabled && isIncreasing" autoplay src="/collect.mp3"></audio>
       <small>&times;</small>
       <span class="number">{{ $store.state.bank }}</span>
     </span>
@@ -26,7 +27,7 @@ export default {
         const { startingBank, minimumBet } = this.$store.state.settings
         if (previous === 0 && current === startingBank - minimumBet) return // do not animate starting bank
         if (current > previous) this.isIncreasing = true
-        setTimeout(() => { this.isIncreasing = false }, 1000)
+        setTimeout(() => { this.isIncreasing = false }, 2500)
       }
     }
   }

@@ -4,7 +4,7 @@
       v-if="result"
       class="hand-result"
     >
-      <svg :is="'result-' + result.toLowerCase()"></svg>
+      <svg :is="'result-' + result"></svg>
     </div>
   </transition>
 </template>

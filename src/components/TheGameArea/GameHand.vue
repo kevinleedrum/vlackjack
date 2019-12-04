@@ -13,7 +13,8 @@
     </transition-group>
     <HandTotal :index="index" />
     <HandBet :hand="hand" />
-    <HandResult :result="toResultString(hand.result)" />
+    <HandResult :result="result" />
+    <audio v-if="shouldPlayResultSound" autoplay :src="`/${result}.mp3`"></audio>
   </div>
 </template>
 
@@ -48,6 +49,14 @@ export default {
     isInactiveHand () {
       return this.isSplit && !this.isActiveHand && this.$store.state.activeHandIndex && this.index > 0
     },
+    result () {
+      for (const key in blackjack.results) {
+        if (blackjack.results[key] === this.hand.result) return key.toLowerCase()
+      }
+    },
+    shouldPlayResultSound () {
+      return this.$store.state.settings.isSoundEnabled && this.result && this.index > 0
+    },
     handClasses () {
       let classes = []
       if (this.isActiveHand && this.index > 0) classes.push('is-active')
@@ -57,13 +66,6 @@ export default {
       return classes
     },
     ...mapGetters(['isSplit'])
-  },
-  methods: {
-    toResultString (resultValue) {
-      for (const key in blackjack.results) {
-        if (blackjack.results[key] === resultValue) return key
-      }
-    }
   }
 }
 </script>

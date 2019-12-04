@@ -18,6 +18,9 @@ export default {
   toggleBasicStrategy (state) {
     state.settings.showBasicStrategy = !state.settings.showBasicStrategy
   },
+  toggleSound (state) {
+    state.settings.isSoundEnabled = !state.settings.isSoundEnabled
+  },
   resetShoe (state, { _blackjack = blackjack }) {
     state.shoe = _blackjack.createShoe(state.settings.deckCount)
     state.shoe = _blackjack.shuffle(state.shoe)
