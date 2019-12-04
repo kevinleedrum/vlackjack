@@ -37,12 +37,37 @@ export default {
     },
     ...mapState([
       'isDealing',
+      'isTvMode',
       'activeHandIndex'
     ]),
     ...mapGetters([
       'canSplit',
       'canDoubleDown'
     ])
+  },
+  watch: {
+    isPlayerTurn (isPlayerTurn) {
+      if (isPlayerTurn && this.isTvMode) this.$nextTick(() => this.focusButton(-1))
+    }
+  },
+  mounted () {
+    window.addEventListener('keydown', e => {
+      if (!['ArrowLeft', 'ArrowRight'].includes(e.key)) return
+      const direction = e.key === 'ArrowRight' ? 1 : -1
+      this.focusButton(direction)
+    })
+  },
+  methods: {
+    focusButton (direction) {
+      const buttons = Array.from(document.querySelectorAll('.controls button'))
+      if (buttons.every(e => e.disabled)) return
+      const buttonIndex = buttons.indexOf(document.activeElement)
+      let newButtonIndex = buttonIndex + direction
+      if (newButtonIndex < 0) newButtonIndex = 3
+      if (newButtonIndex > 3) newButtonIndex = 0
+      if (buttons[newButtonIndex].disabled) this.focusButton(direction > 0 ? direction + 1 : direction - 1)
+      else buttons[newButtonIndex].focus()
+    }
   }
 }
 </script>
