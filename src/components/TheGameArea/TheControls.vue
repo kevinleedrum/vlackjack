@@ -26,11 +26,13 @@
 import GameButton from './GameButton'
 import TheBank from './TheBank'
 import { mapGetters, mapState } from 'vuex'
+import GamepadHandler from '../../mixins/GamepadHandler'
 export default {
   components: {
     GameButton,
     TheBank
   },
+  mixins: [GamepadHandler],
   computed: {
     isPlayerTurn () {
       return !this.isDealing && this.activeHandIndex > 0
@@ -51,13 +53,20 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('keydown', e => {
+    const onKeydown = e => {
       if (!['ArrowLeft', 'ArrowRight'].includes(e.key)) return
       const direction = e.key === 'ArrowRight' ? 1 : -1
       this.focusButton(direction)
+    }
+    window.addEventListener('keydown', onKeydown)
+    this.$once('hook:beforeDestroy', () => {
+      window.removeEventListener('keydown', onKeydown)
     })
   },
   methods: {
+    clickButton () {
+      if (document.activeElement) document.activeElement.click()
+    },
     focusButton (direction) {
       const buttons = Array.from(document.querySelectorAll('.controls button'))
       if (buttons.every(e => e.disabled)) return
