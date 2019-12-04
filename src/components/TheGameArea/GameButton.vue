@@ -1,6 +1,7 @@
 <template>
-  <a class="game-button"
-    :class="{ 'is-disabled': !isEnabled, 'is-highlighted': isHighlighted }"
+  <button class="game-button"
+    :disabled="!isEnabled"
+    :class="{ 'is-highlighted': isHighlighted }"
     @click="doAction"
   >
     <svg style="display: none">
@@ -55,7 +56,7 @@
       <use :xlink:href="'#' + action"></use>
     </svg>
     <div class="dot"></div>
-  </a>
+  </button>
 </template>
 
 <script>
@@ -97,7 +98,7 @@ svg {
   border: 0;
   margin: 0 0.5rem;
   background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 2em;
+  border-radius: 2rem;
   transition: opacity 0.2s ease;
   box-shadow: 0 0.25rem 0 0 rgba(0, 0, 0, 0.25);
   transform: translateY(-0.125rem);
@@ -107,17 +108,17 @@ svg {
   width: 100%;
   height: 100%;
 }
-.game-button.is-disabled {
+.game-button:disabled {
   cursor: default;
   opacity: 0.25;
 }
-.game-button.is-disabled svg {
+.game-button:disabled svg {
   opacity: 0.5;
 }
 .game-button .dot {
   display: none;
 }
-.game-button.is-highlighted:not(.is-disabled) .dot {
+.game-button.is-highlighted:not(:disabled) .dot {
   display: block;
   position: absolute;
   top: 0;
@@ -127,12 +128,12 @@ svg {
   border-radius: 50%;
   background: $gold;
 }
-.game-button:not(.is-disabled):not(:active):hover {
+.game-button:not(:disabled):not(:active):hover, .game-button:not(:disabled):not(:active):focus {
   background-color: $white;
   transform: translateY(-0.25rem);
-  box-shadow: 0 0.375rem 0 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 2.5rem 0 $white, 0 0.375rem 0 0 rgba(0, 0, 0, 0.25);
 }
-.game-button:not(.is-disabled):active {
+.game-button:not(:disabled):active {
   box-shadow: 0 0 0;
   transform: translateY(0);
 }
