@@ -8,7 +8,7 @@ https://kevinleedrum.github.io/vlackjack/
 
 ## Introduction
 
-Vlackjack is a single-player HTML5 blackjack game built with [vue](https://vuejs.org/) and [vuex](https://vuex.vuejs.org/) with optional basic strategy hints.
+Vlackjack is a single-player HTML5 blackjack game built with [vue 2](https://vuejs.org/) and [vuex](https://vuex.vuejs.org/) with optional basic strategy hints.
 
 All of the animations are performed via CSS3, Vue transitions, and SVG animation.
 
