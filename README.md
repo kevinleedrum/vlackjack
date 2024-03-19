@@ -1,5 +1,7 @@
 # VLACKJACK :spades: :hearts: :clubs: :diamonds:
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 ## :rocket: Play Now
 
 https://kevinleedrum.github.io/vlackjack/
