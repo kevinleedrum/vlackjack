@@ -25,8 +25,7 @@
       <p>
         &copy; 2017&ndash;{{ new Date().getFullYear() }}
         <a
-          href="https://twitter.com/kevinleedrum"
-          title="twitter"
+          href="https://kld.dev"
           target="_blank"
         >
           Kevin Lee Drum
