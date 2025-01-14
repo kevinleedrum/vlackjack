@@ -1,34 +1,36 @@
-# VLACKJACK :spades: :hearts: :clubs: :diamonds:
+# VLACKJACK ♠️♥️♣️♦️
 
-[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+> [!NOTE]
+> As of January 2025, Vlackjack is now written in Vue 3! 🥳 If you would still like to view the source code for the Vue 2 / vuex
+> version, see the [vue2 branch](https://github.com/kevinleedrum/vlackjack/tree/vue2).
 
-## :rocket: Play Now
+## Play Now 🚀
 
 https://kevinleedrum.github.io/vlackjack/
 
 ## Introduction
 
-Vlackjack is a single-player HTML5 blackjack game built with [vue 2](https://vuejs.org/) and [vuex](https://vuex.vuejs.org/) with optional basic strategy hints.
+Vlackjack is a single-player HTML5 blackjack game built with [Vue 3](https://vuejs.org/).
 
-All of the animations are performed via CSS3, Vue transitions, and SVG animation.
+![Screenshot](./docs/screenshot.png)
 
-## Yarn / NPM Scripts
+All of the sounds in this game are from [Freesound](https://freesound.org) and have a CC0 license.
 
-``` bash
+## NPM Scripts
+
+```bash
 # install dependencies
-yarn
+npm install
 
-# serve with hot reload
-yarn serve
+# serve for development
+npm run dev
 
 # build
-yarn build
-
-# run unit tests
-yarn test:unit
+npm run build
 ```
 
 ## Rules
+
 - To keep the game simple, the initial bet is always one coin
 - 6 Decks, shuffled after 75% have been played
 - Blackjack pays 2-to-1
@@ -37,8 +39,6 @@ yarn test:unit
 - Double down after splitting (`DAS`) (except Aces)
 - No resplitting (`NR`)
 - No insurance (`NI`)
-
-The basic strategy suggestions are based on this ruleset.
 
 ## License
 

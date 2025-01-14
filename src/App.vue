@@ -1,68 +1,66 @@
-<template>
-  <div class="game">
-    <TheStars />
-    <TheSidebar />
-    <TheGameArea />
-    <TheMenuButton />
-    <TheTitleScreen v-if="$store.state.isTitleShowing" />
-  </div>
-</template>
+<script setup lang="ts">
+import { state } from '@/store'
+import { onMounted } from 'vue'
+import GameHand from '@/components/GameHand.vue'
+import SvgSprite from '@/components/SvgSprite.vue'
+import AnimatedBackground from '@/components/AnimatedBackground.vue'
+import { playSound, Sounds, initSound } from '@/sound'
+import PlayerToolbar from '@/components/PlayerToolbar.vue'
+import TitleScreen from '@/components/TitleScreen.vue'
+import GameHeader from '@/components/GameHeader.vue'
 
-<script>
-import TheTitleScreen from '@/components/TheTitleScreen'
-import TheSidebar from '@/components/TheSidebar'
-import TheStars from '@/components/TheGameArea/TheStars'
-import TheGameArea from '@/components/TheGameArea'
-import TheMenuButton from '@/components/TheMenuButton'
-export default {
-  components: {
-    TheTitleScreen,
-    TheSidebar,
-    TheStars,
-    TheGameArea,
-    TheMenuButton
+onMounted(() => {
+  initSound()
+})
+
+function onClickCapture(e: MouseEvent) {
+  const target = e.target as HTMLButtonElement
+  if (target?.tagName === 'BUTTON' && !target?.disabled) {
+    playSound(Sounds.Click)
   }
 }
 </script>
 
-<style lang="scss">
-.game {
+<template>
+  <SvgSprite />
+  <AnimatedBackground />
+  <GameHeader />
+  <main @click.capture="onClickCapture">
+    <section
+      class="player"
+      v-for="(player, p) in state.players"
+      :key="p"
+      :class="{ dealer: player.isDealer }"
+    >
+      <GameHand v-for="hand in player.hands" :hand="hand" :player="player" :key="hand.id" />
+    </section>
+    <PlayerToolbar />
+  </main>
+  <TitleScreen />
+</template>
+
+<style scoped>
+main {
   display: flex;
-  flex-flow: row nowrap;
-}
-html, body, .game {
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 8rem;
+  padding-bottom: 8rem;
   height: 100%;
-  overflow: hidden;
-  margin: 0;
+  padding: 2rem 1rem 1rem 1rem;
 }
-html {
-  font-size: 16px;
+section.player {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+  min-height: 11.2rem;
 }
-@media (max-height: 768px) {
-  html {
-  font-size: calc(5px + 0.5vh);
-  }
+section.player:not(.dealer) {
+  flex-grow: 1;
 }
-body {
-  background: $primary-color;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-}
-:focus {
-  outline: 0 !important;
-}
-* {
-  user-select: none;
-}
-.text-red {
-  color: #E04030;
-}
-.text-secondary-color {
-  color: rgb(12, 36, 48);
-}
-.text-gold {
-  color: #E1AE0F;
-}
-.text-white {
-  color: $white;
+section.player.dealer {
+  z-index: -1;
 }
 </style>

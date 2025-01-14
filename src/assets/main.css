@@ -1,0 +1,142 @@
+@font-face {
+  font-family: 'Big Shoulders Display';
+  font-style: normal;
+  font-display: block;
+  src: url('/fonts/big_shoulders_display.woff2') format('woff2');
+}
+
+:root {
+  --color-chip: #0055ff;
+  --color-red: #f33;
+  --color-dark-red: #b60000;
+  --color-black: #161718;
+  --color-cyan: #8fe;
+  --color-dark-cyan: #00467f;
+  --color-white: #fff;
+  --color-off-white: #ffffef;
+  --color-blue-white: #deffff;
+  --color-gold: #ffd900;
+
+  font-size: 8px;
+  font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  font-optical-sizing: auto;
+  color: var(--color-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 600px) and (min-height: 768px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 900px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  overscroll-behavior: none;
+  background-color: var(--color-dark-cyan);
+}
+
+#app {
+  height: 100%;
+}
+
+h1 {
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 > span {
+  color: var(--color-red);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-variation-settings: 'wght' 500;
+  line-height: 1;
+  padding: 1rem 1.5rem;
+  border-radius: 1.75rem;
+  border: 0;
+  letter-spacing: 0.05rem;
+  background-color: rgba(from var(--color-off-white) r g b / 0.9);
+  color: currentColor;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button:focus-visible:not(:disabled),
+button:active:not(:disabled) {
+  background-color: rgba(from var(--color-off-white) r g b / 1);
+  transform: translateY(-0.1rem);
+}
+
+@media (hover: hover) {
+  button:hover:not(:disabled) {
+    background-color: rgba(from var(--color-off-white) r g b / 1);
+    transform: translateY(-0.1rem);
+  }
+}
+
+button:focus-visible:not(:disabled) {
+  outline-offset: 0.25rem;
+  outline: 2px solid var(--color-white);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0.1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+  }
+}
