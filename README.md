@@ -12,7 +12,7 @@ https://kevinleedrum.github.io/vlackjack/
 
 Vlackjack is a single-player HTML5 blackjack game built with [Vue 3](https://vuejs.org/).
 
-![Screenshot](./docs/screenshot.png)
+![Screenshot](./public/screenshot.png)
 
 All of the sounds in this game are from [Freesound](https://freesound.org) and have a CC0 license.
 
