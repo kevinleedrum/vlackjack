@@ -42,11 +42,13 @@ const nextPlayer = computed(() => {
 
 export const canDoubleDown = computed(() => {
   if (state.isDealing) return false;
+  if ((state.activePlayer?.bank ?? 0) < (state.activeHand?.bet ?? 0)) return false;
   return state.activeHand?.cards.length === 2 && state.activePlayer?.hands.length === 1;
 });
 
 export const canSplit = computed(() => {
   if (state.isDealing) return false;
+  if ((state.activePlayer?.bank ?? 0) < (state.activeHand?.bet ?? 0)) return false;
   return state.activeHand?.cards.length === 2 && state.activePlayer?.hands.length === 1 && state.activeHand?.cards[0].rank === state.activeHand!.cards[1].rank;
 });
 
