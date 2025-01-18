@@ -64,7 +64,7 @@ export async function playRound() {
   state.players.forEach(p => p.hands = [new Hand()]);
   state.showDealerHoleCard = false;
   reshuffleIfNeeded();
-  await placeBet(state.players[0], MINIMUM_BET);
+  await placeBet(state.players[0], state.players[0].hands[0], MINIMUM_BET);
   await dealRound();
   if (dealerHasBlackjack.value) return endRound();
   playTurn(state.players[0]);
@@ -101,10 +101,11 @@ async function dealRound() {
 }
 
 /** Place a bet for the player. */
-async function placeBet(player: Player, amount: number) {
+async function placeBet(player: Player, hand: Hand, amount: number) {
+  state.isDealing = true;
   await nextTick();
   player.bank -= amount;
-  player.hands[0].bet = amount;
+  hand.bet += amount;
   playSound(Sounds.Bet);
   await sleep();
 }
@@ -200,22 +201,20 @@ export async function split(): Promise<void> {
   if (!canSplit.value) return;
   state.isDealing = true;
   const bet = state.activeHand!.bet;
-  const splitHands = [new Hand(bet), new Hand(bet)];
+  const splitHands = [new Hand(bet), new Hand(0)];
   splitHands[0].cards = state.activeHand!.cards.slice(0, 1);
   splitHands[1].cards = state.activeHand!.cards.slice(1);
   state.activeHand = null;
   await sleep();
   state.activePlayer!.hands = splitHands;
-  state.activePlayer!.bank -= bet;
-  await sleep();
+  await placeBet(state.activePlayer!, state.activePlayer!.hands[1], bet);
   playTurn(state.activePlayer!);
 }
 
 /** Double the bet for the active hand, and hit only once. */
 export async function doubleDown(): Promise<void> {
   if (!canDoubleDown.value) return;
-  state.activePlayer!.bank -= state.activeHand!.bet;
-  state.activeHand!.bet *= 2;
+  await placeBet(state.activePlayer!, state.activeHand!, state.activeHand!.bet);
   await hit();
   endHand();
 }
