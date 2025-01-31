@@ -1,4 +1,4 @@
-import { generateShoe } from '@/cards'
+import { generateShoe, shuffle } from '@/cards'
 import type { GameState, HandResult, Player } from './types'
 import { computed, nextTick, reactive } from 'vue'
 import { Sounds, playSound } from './sound'
@@ -16,6 +16,7 @@ const INITIAL_PLAYERS = [
 
 export const state = reactive<GameState>({
   shoe: generateShoe(NUMBER_OF_DECKS),
+  cardsPlayed: 0,
   players: INITIAL_PLAYERS,
   activePlayer: null,
   activeHand: null,
@@ -68,7 +69,6 @@ export async function playRound() {
   if (checkForGameOver()) return
   state.players.forEach((p) => (p.hands = [new Hand()]))
   state.showDealerHoleCard = false
-  reshuffleIfNeeded()
   await placeBet(state.players[0], state.players[0].hands[0], MINIMUM_BET)
   await dealRound()
   if (dealerHasBlackjack.value) return endRound()
@@ -85,20 +85,26 @@ function checkForGameOver(): boolean {
   return false
 }
 
+/** Draw a card from the shoe. */
+function drawCard() {
+  reshuffleIfNeeded()
+  state.cardsPlayed++
+  return state.shoe.shift()
+}
+
 /** Reshuffle the shoe if less than 25% of the cards are left. */
 function reshuffleIfNeeded() {
-  const remainingPercentage = state.shoe.length / (NUMBER_OF_DECKS * 52)
-  if (remainingPercentage < SHUFFLE_THRESHOLD) {
-    state.shoe = generateShoe(NUMBER_OF_DECKS)
-  }
+  const remainingPercentage = 1 - state.cardsPlayed / (NUMBER_OF_DECKS * 52)
+  if (remainingPercentage > SHUFFLE_THRESHOLD) return
+  state.shoe = shuffle(state.shoe)
+  state.cardsPlayed = 0
 }
 
 /** Deal two cards to each player */
 async function dealRound() {
   for (let i = 0; i < 2; i++) {
     for (const player of state.players) {
-      if (state.shoe.length === 0) reshuffleIfNeeded()
-      player.hands[0].cards.push(state.shoe.shift()!)
+      player.hands[0].cards.push(drawCard()!)
       playSound(Sounds.Deal)
       await sleep(600)
     }
@@ -170,7 +176,7 @@ async function playDealerHand(hand: Hand) {
 /** Deal one more card to the active hand, and check for 21 or a bust. */
 export async function hit() {
   state.isDealing = true
-  state.activeHand!.cards.push(state.shoe.shift()!)
+  state.activeHand!.cards.push(drawCard()!)
   playSound(Sounds.Deal)
   if (await checkForTwentyOne(state.activeHand!)) return
   if (await checkForBust(state.activeHand!)) return
@@ -317,7 +323,10 @@ async function collectWinnings() {
 /** Reset all hands to an initial state. */
 async function resetHands() {
   for (const player of state.players) {
-    for (const hand of player.hands) hand.reset()
+    for (const hand of player.hands) {
+      state.shoe.push(...hand.cards)
+      hand.reset()
+    }
   }
   await sleep()
 }

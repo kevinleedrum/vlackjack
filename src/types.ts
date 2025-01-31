@@ -21,6 +21,8 @@ export type Player = {
 export type GameState = {
   /** The shoe of cards */
   shoe: Card[]
+  /** Number of cards played */
+  cardsPlayed: number
   /** The players in the game, including the dealer */
   players: Player[]
   /** The player whose turn it is */
