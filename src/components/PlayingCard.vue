@@ -39,30 +39,32 @@ function getCardLabel(card: Card) {
 <template>
   <div
     class="card"
-    :data-rank="card.rank.toLowerCase()"
-    :data-suit="card.suit"
+    :data-rank="isFaceDown ? null : card.rank.toLowerCase()"
+    :data-suit="isFaceDown ? null : card.suit"
     role="img"
     :aria-label="getCardLabel(card)"
     :class="{ 'face-down': isFaceDown }"
   >
     <div class="card-face" role="presentation">
-      <div class="card-corner" v-if="!isFaceDown">
-        <span class="card-rank">{{ card.rank.toUpperCase() }}</span>
-        <svg>
-          <use :href="'#suit-' + card.suit"></use>
-        </svg>
-      </div>
-      <div class="card-center">
-        <svg v-for="i in symbolCount" :key="i">
-          <use :href="'#suit-' + card.suit"></use>
-        </svg>
-      </div>
-      <div class="card-corner" v-if="!isFaceDown">
-        <span class="card-rank">{{ card.rank.toUpperCase() }}</span>
-        <svg class="card-suit">
-          <use :href="'#suit-' + card.suit"></use>
-        </svg>
-      </div>
+      <template v-if="!isFaceDown">
+        <div class="card-corner" v-if="!isFaceDown">
+          <span class="card-rank">{{ card.rank.toUpperCase() }}</span>
+          <svg>
+            <use :href="'#suit-' + card.suit"></use>
+          </svg>
+        </div>
+        <div class="card-center">
+          <svg v-for="i in symbolCount" :key="i">
+            <use :href="'#suit-' + card.suit"></use>
+          </svg>
+        </div>
+        <div class="card-corner" v-if="!isFaceDown">
+          <span class="card-rank">{{ card.rank.toUpperCase() }}</span>
+          <svg class="card-suit">
+            <use :href="'#suit-' + card.suit"></use>
+          </svg>
+        </div>
+      </template>
     </div>
     <div class="card-back" role="presentation">
       <svg>
