@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Hand } from '@/blackjack'
+import type { Hand } from '@/types'
 import { computed } from 'vue'
 const props = defineProps<{ hand: Hand }>()
 const isLoss = computed(() => ['lose', 'bust'].includes(props.hand.result!))

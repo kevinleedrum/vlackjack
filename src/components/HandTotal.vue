@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getHandTotal, type Hand } from '@/blackjack'
+import { type Hand } from '@/types'
 import { dealer, state } from '@/store'
 import { computed } from 'vue'
 
@@ -9,7 +9,7 @@ const total = computed(() => {
   if (props.hand.cards.length < 2) return // Wait until two cards are dealt
   const isDealer = dealer.value.hands.includes(props.hand)
   if (isDealer && !state.showDealerHoleCard) return // Hide dealer's total until hole card is revealed
-  return getHandTotal(props.hand.cards)
+  return props.hand.total
 })
 </script>
 

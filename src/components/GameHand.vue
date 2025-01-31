@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { type Hand } from '@/blackjack'
-import PlayingCard from './PlayingCard.vue'
+import { computed } from 'vue'
+import type { Card, Player, Hand} from '@/types'
 import { dealer, state } from '@/store'
-import type { Card, Player } from '@/types'
 import HandTotal from './HandTotal.vue'
 import HandBet from './HandBet.vue'
-import { computed } from 'vue'
+import PlayingCard from './PlayingCard.vue'
 
 const props = defineProps<{
   hand: Hand

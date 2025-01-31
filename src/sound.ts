@@ -1,4 +1,4 @@
-import { state } from './store';
+import { state } from './store'
 
 import deal from '@/assets/sounds/757328__steaq__ui-hover-item.mp3'
 import click from '@/assets/sounds/159698__qubodup__scroll-step-hover-sound-for-user-interface.mp3'
@@ -52,64 +52,64 @@ const files = new Map<Sounds, string>([
   [Sounds.BadHit, badHit],
   [Sounds.GoodHit, goodHit],
   [Sounds.GameOver, gameOver],
-]);
+])
 
-const SOUND_PERCENT = 100 / files.size;
+const SOUND_PERCENT = 100 / files.size
 
-const buffers = new Map<Sounds, AudioBuffer>();
-const sources = new Map<Sounds, AudioBufferSourceNode>();
+const buffers = new Map<Sounds, AudioBuffer>()
+const sources = new Map<Sounds, AudioBufferSourceNode>()
 
-const ctx = new AudioContext();
-const gainNode = ctx.createGain();
-gainNode.connect(ctx.destination);
+const ctx = new AudioContext()
+const gainNode = ctx.createGain()
+gainNode.connect(ctx.destination)
 
 /** Resume the audio context (i.e. once a user clicks on the page) */
 export const initSound = async (): Promise<void> => {
-  if (ctx.state === 'suspended') await ctx.resume();
-};
+  if (ctx.state === 'suspended') await ctx.resume()
+}
 
 /** Fetch and decode an audio file. */
 const loadSound = async (sound: Sounds): Promise<void> => {
-  const response = await fetch(files.get(sound)!);
-  const arrayBuffer = await response.arrayBuffer();
-  const audioBuffer = await ctx.decodeAudioData(arrayBuffer);
-  buffers.set(sound, audioBuffer);
-  state.soundLoadProgress += SOUND_PERCENT;
-};
+  const response = await fetch(files.get(sound)!)
+  const arrayBuffer = await response.arrayBuffer()
+  const audioBuffer = await ctx.decodeAudioData(arrayBuffer)
+  buffers.set(sound, audioBuffer)
+  state.soundLoadProgress += SOUND_PERCENT
+}
 
 /** Load all audio files. */
 export const loadSounds = (): Promise<void[]> => {
-  return Promise.all(Array.from(files.keys()).map(loadSound));
-};
-loadSounds();
+  return Promise.all(Array.from(files.keys()).map(loadSound))
+}
+loadSounds()
 
 /** Stop a sound from playing. */
 export const stopSound = (sound: Sounds) => {
-  if (!sources.has(sound)) return;
-  const source = sources.get(sound)!;
-  source.stop();
-  sources.delete(sound);
-};
+  if (!sources.has(sound)) return
+  const source = sources.get(sound)!
+  source.stop()
+  sources.delete(sound)
+}
 
 /** Play a sound.  If the sound is already playing, it will be restarted unless `restartIfPlaying` is false. */
 export const playSound = async (sound: Sounds, restartIfPlaying = true) => {
-  if (ctx.state === 'suspended') await ctx.resume();
-  if (!buffers.has(sound)) return;
-  if (state.isMuted) return;
+  if (ctx.state === 'suspended') await ctx.resume()
+  if (!buffers.has(sound)) return
+  if (state.isMuted) return
   if (sources.has(sound)) {
-    if (!restartIfPlaying) return;
-    stopSound(sound);
+    if (!restartIfPlaying) return
+    stopSound(sound)
   }
-  const source = ctx.createBufferSource();
-  source.buffer = buffers.get(sound)!;
-  sources.set(sound, source);
-  source.addEventListener('ended', () => stopSound(sound));
-  source.connect(gainNode);
-  source.start();
-};
+  const source = ctx.createBufferSource()
+  source.buffer = buffers.get(sound)!
+  sources.set(sound, source)
+  source.addEventListener('ended', () => stopSound(sound))
+  source.connect(gainNode)
+  source.start()
+}
 
 /** Set a sound to loop. */
 export const setLooping = (sound: Sounds, loop: boolean) => {
-  if (!sources.has(sound)) return;
-  sources.get(sound)!.loop = loop;
-};
+  if (!sources.has(sound)) return
+  sources.get(sound)!.loop = loop
+}
