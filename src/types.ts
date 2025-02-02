@@ -53,7 +53,7 @@ export class Hand {
     this.bet = bet
   }
 
-  get total() {
+  get total(): number {
     let total = 0
     let addedHighAce = false
     for (const card of this.cards) {
@@ -65,6 +65,14 @@ export class Hand {
     }
     if (total > 21 && addedHighAce) total -= 10
     return total
+  }
+
+  get isBust(): boolean {
+    return this.total > 21
+  }
+
+  get isBlackjack(): boolean {
+    return this.total === 21 && this.cards.length === 2
   }
 
   reset() {

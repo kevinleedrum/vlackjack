@@ -32,7 +32,7 @@ export const state = reactive<GameState>({
 export const dealer = computed(() => state.players[state.players.length - 1])
 
 const dealerHasBlackjack = computed(() => {
-  return dealer.value.hands[0].cards.length === 2 && dealerTotal.value === 21
+  return dealer.value.hands[0].isBlackjack
 })
 
 const dealerTotal = computed(() => dealer.value.hands[0].total)
@@ -143,7 +143,7 @@ async function playHand(hand: Hand): Promise<void> {
 
 /** Check if the player has blackjack. If so, award the player and end the hand. */
 async function checkForBlackjack(hand: Hand): Promise<boolean> {
-  if (hand.cards.length === 2 && hand.total === 21) {
+  if (hand.isBlackjack) {
     hand.result = 'blackjack'
     await sleep(100)
     playSound(Sounds.BlackjackBoom)
@@ -197,7 +197,7 @@ async function checkForTwentyOne(hand: Hand): Promise<boolean> {
 
 /** Check if the player has busted.  If so, end the hand. */
 async function checkForBust(hand: Hand): Promise<boolean> {
-  if (hand.total > 21) {
+  if (hand.isBust) {
     if (!state.activePlayer?.isDealer) playSound(Sounds.BadHit)
     await sleep()
     state.activeHand = null
