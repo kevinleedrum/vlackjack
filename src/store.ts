@@ -9,7 +9,7 @@ const STARTING_BANK = 20
 const NUMBER_OF_DECKS = 6
 /** Reshuffle once less than 25% of the cards are left */
 const SHUFFLE_THRESHOLD = 0.25
-const INITIAL_PLAYERS = [
+const INITIAL_PLAYERS: Player[] = [
   { isDealer: false, bank: STARTING_BANK, hands: [new Hand()] },
   { isDealer: true, bank: 0, hands: [new Hand()] },
 ]
